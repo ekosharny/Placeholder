@@ -9,4 +9,10 @@
     <string name="tab_text_4">Settings</string>
     <string name="bowls">Bowls</string>
     <string name="title_activity_bowls">bowls</string>
+    <string name="sides">sides</string>
+    <string name="drinks">drinks</string>
+    <string name="desserts">desserts</string>
+    <string name="workInProgress">workInProgress</string>
+    <string name="CreateYourOwnBowl">Create Your Own Bowl</string>
+    <string name="PremadeBowls">Premade Bowls</string>
 </resources>

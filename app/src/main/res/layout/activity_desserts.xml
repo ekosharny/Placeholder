@@ -7,7 +7,8 @@
     tools:context=".desserts">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:contentDescription="@string/workInProgress"
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,6 +21,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/cheesecake" />
+        app:srcCompat="@drawable/work" />
 </android.support.constraint.ConstraintLayout>
