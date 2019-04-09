@@ -15,4 +15,8 @@
     <string name="workInProgress">workInProgress</string>
     <string name="CreateYourOwnBowl">Create Your Own Bowl</string>
     <string name="PremadeBowls">Premade Bowls</string>
+    <string name="entername">Enter Name</string>
+    <string name="enteremail">Enter e-mail</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="SignUp">Sign Up</string>
 </resources>
