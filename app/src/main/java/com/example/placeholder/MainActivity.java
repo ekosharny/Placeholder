@@ -26,13 +26,18 @@ public class MainActivity extends AppCompatActivity {
 
         login.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                if(username.getText().toString().equals("admin") &&
-                password.getText().toString().equals("avocados")) {
-                    //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                Customer customer = findUser(v);
+                if(username.getText().toString().equals(customer.getEmail()) && password.getText().toString().equals(customer.getPassword())) {
                     startActivity(new Intent(MainActivity.this, TabFragments.class));
                 }
-                else{
-                    Toast.makeText(getApplicationContext(), "Wrong username or password",
+
+                else if(username.getText().toString().equals(customer.getEmail()) && password.getText().toString()!=(customer.getPassword())){
+                    Toast.makeText(getApplicationContext(), "Wrong password",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    Toast.makeText(getApplicationContext(), "Account does not exist",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -46,5 +51,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public Customer findUser(View v){
+        DatabaseHelper dhelper = new DatabaseHelper(this);
+        Customer customer =  dhelper.findHandler(username.getText().toString());
+        return customer;
     }
 }

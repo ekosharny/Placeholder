@@ -60,16 +60,34 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
         }
 
-        public boolean deleteHandler(int ID) {
+       public Customer findHandler(String cEmail) {
+           String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = " + "'" + cEmail + "'";
+           SQLiteDatabase db = this.getWritableDatabase();
+           Cursor cursor = db.rawQuery(query, null);
+           Customer customer = new Customer();
+           if (cursor.moveToFirst()) {
+               cursor.moveToFirst();
+               customer.setName(cursor.getString(1));
+               customer.setEmail(cursor.getString(2));
+               customer.setPassword(cursor.getString(3));
+               cursor.close();
+           } else {
+               customer = null;
+           }
+           db.close();
+           return customer;
+       }
+
+        public boolean deleteHandler(String name) {
 
             boolean result = false;
-            String query = "Select*FROM" + TABLE_NAME + "WHERE" + COLUMN_ID + "= '" + String.valueOf(ID) + "'";
+            String query = "Select*FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + "= '" + name + "'";
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(query, null);
             Customer customer = new Customer();
             if (cursor.moveToFirst()) {
-                customer.setName(cursor.getString(0));
-                db.delete(TABLE_NAME, COLUMN_ID + "=?",
+                customer.setName(cursor.getString(1));
+                db.delete(TABLE_NAME, COLUMN_NAME + "=?",
                         new String[] {
                     String.valueOf(customer.getName())
                 });
