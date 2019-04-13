@@ -80,6 +80,10 @@ import android.database.sqlite.SQLiteOpenHelper;
                     COLUMN_PASSWORD + " VARCHAR);";
             db.execSQL(CREATE_TABLE);
         }
+
+        //Called when the database needs to be upgraded.
+        // The implementation should use this method to drop tables, add tables,
+        // or do anything else it needs to upgrade to the new schema version
         @Override
         public void onUpgrade(SQLiteDatabase db, int i, int i1) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
@@ -87,6 +91,8 @@ import android.database.sqlite.SQLiteOpenHelper;
         }
 
 
+        //loads the entire table so you can display it
+       //We use the rawQuery() method of a SQLiteDatabase object to implement SQL statement and display result via a Cursor object
         public String loadHandler() {
 
             String result = "";
@@ -105,6 +111,10 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
             return result;
         }
+
+        //we must use the ContentValues object with the put() method that is used to assign data to ContentsValues object
+        //and then use insert() method of SQLiteDatabase object to insert data to the database
+       //parameter is new customer object
         public void addHandler(Customer customer) {
 
             ContentValues values = new ContentValues();
@@ -116,6 +126,10 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
         }
 
+
+        //finds information in the database by condition
+       //parameter is the email/username
+       //method returns the customer object linked to that email/username
        public Customer findHandler(String cEmail) {
            String query = "Select * FROM " + TABLE_NAME1 + " WHERE " + COLUMN_EMAIL + " = " + "'" + cEmail + "'";
            SQLiteDatabase db = this.getWritableDatabase();
@@ -134,6 +148,12 @@ import android.database.sqlite.SQLiteOpenHelper;
            return customer;
        }
 
+
+       //deletes a record by condition
+       //accepts a name and deletes the row/record affiliated with that name
+       //We will save the result that is returned from the implementation of the rawQuery() method
+       //of the SQLiteDatabase object into a Cursor object and find the matching result in this object.
+       // In the final step, we use the delete() method of the SQLiteDatabase object to delete the record
         public boolean deleteHandler(String name) {
 
             boolean result = false;
@@ -153,6 +173,9 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
             return result;
         }
+
+        //updates the information in a record
+       //we can use the ContentValues object and the update() method of the SQLiteDatabase object
         public boolean updateHandler(int ID, String name, String email, String password) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues args = new ContentValues();

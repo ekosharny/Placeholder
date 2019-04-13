@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class settings extends AppCompatActivity {
 
+    //creates variables for buttons/text-edit
     Button delete;
     EditText confirmUsername, confirmPassword;
 
@@ -19,13 +20,18 @@ public class settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //links variable to id in layout
         delete = findViewById(R.id.deletebutton);
         confirmUsername = findViewById(R.id.conUser);
         confirmPassword = findViewById(R.id.conPass);
 
+
+        //delete button action
         delete.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
+                //creates a new customer object that finds user
                 Customer customer = findUser(v);
+                //if username exists in the database and it matches the password on the record then call deleteAccount method and redirct to main login page
                 if(confirmUsername.getText().toString().equals(customer.getEmail()) && confirmPassword.getText().toString().equals(customer.getPassword())) {
                     boolean x = deleteAccount(customer);
                     if(x==true)
@@ -36,6 +42,7 @@ public class settings extends AppCompatActivity {
                     startActivity(new Intent(settings.this, MainActivity.class));
                 }
 
+                //display message if username doesn't exist in database or password is wrong
                 else
                     Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
 
@@ -43,12 +50,15 @@ public class settings extends AppCompatActivity {
         });
     }
 
+    //delete method deletes a customer from the database
     public boolean deleteAccount(Customer customer){
+        //creates new DatabaseHelper and calls deleteHandler
         DatabaseHelper dhelper = new DatabaseHelper(this);
         boolean x = dhelper.deleteHandler(customer.getName());
         return x;
     }
 
+    //uses username input to find the user in the database
     public Customer findUser(View v){
         DatabaseHelper dhelper = new DatabaseHelper(this);
         Customer customer =  dhelper.findHandler(confirmUsername.getText().toString());

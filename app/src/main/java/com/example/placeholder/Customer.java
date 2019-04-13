@@ -23,6 +23,7 @@ public class Customer {
     public String getName(){
         return name;
     }
+
     public void setEmail(String a){
         this.email= a;
     }
@@ -30,6 +31,7 @@ public class Customer {
     public String getEmail(){
         return email;
     }
+
     public void setPassword(String a){
         this.password= a;
     }

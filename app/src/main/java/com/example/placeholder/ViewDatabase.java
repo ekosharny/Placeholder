@@ -16,14 +16,17 @@ public class ViewDatabase extends AppCompatActivity {
 
         output = findViewById(R.id.outputview);
 
+        //click the output textfield (the whole screen basically) to display the tables in the database
         output.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                //calls showCustomers which displays the tables
                 showCustomers(v);
             }
         });
 
     }
 
+    //method displays tables in the output textbox using the loadHandler in DatabaseHelper
     public void showCustomers(View view) {
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         output.setText(dbHandler.loadHandler());
