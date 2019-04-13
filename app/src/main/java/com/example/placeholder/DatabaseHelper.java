@@ -85,6 +85,8 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
             onCreate(db);
         }
+
+
         public String loadHandler() {
 
             String result = "";
