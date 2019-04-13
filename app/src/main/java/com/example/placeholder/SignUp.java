@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class SignUp extends AppCompatActivity {
 
@@ -13,7 +12,7 @@ public class SignUp extends AppCompatActivity {
     DatabaseHelper mDatabaseHelper;
     private EditText name, email, password;
     private Button signup;
-    private TextView output;
+    //private TextView output;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.emailInput);
         password = findViewById(R.id.passwordInput);
         signup = findViewById(R.id.signUpButton);
-        output = findViewById(R.id.outputview);
+        //output = findViewById(R.id.outputview);
 
         mDatabaseHelper = new DatabaseHelper(this);
 
@@ -37,7 +36,7 @@ public class SignUp extends AppCompatActivity {
                 Customer customer = new Customer(addName, addEmail, addPassword);
                 AddData(customer);
 
-                showCustomers(v);
+                //showCustomers(v);
             }
         });
 
@@ -53,6 +52,7 @@ public class SignUp extends AppCompatActivity {
     }
 
 
+    /*
     public void showCustomers(View view) {
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         output.setText(dbHandler.loadHandler());
@@ -60,6 +60,6 @@ public class SignUp extends AppCompatActivity {
         email.setText("");
         password.setText("");
     }
-
+*/
 
 }

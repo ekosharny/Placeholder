@@ -1,10 +1,14 @@
 package com.example.placeholder;
 
+
+//class used to create new customer that will be added to database
+
 public class Customer {
     private String name;
     private String email;
     private String password;
 
+    //constructor
     public Customer(){}
     public Customer(String b, String c, String d){
         this.name = b;
