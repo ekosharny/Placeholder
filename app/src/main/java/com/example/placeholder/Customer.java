@@ -17,21 +17,21 @@ public class Customer {
     }
 
     public String getName(){
-        return this.name;
+        return name;
     }
     public void setEmail(String a){
         this.email= a;
     }
 
     public String getEmail(){
-        return this.email;
+        return email;
     }
     public void setPassword(String a){
         this.password= a;
     }
 
     public String getPassword(){
-        return this.password;
+        return password;
     }
 
 }
