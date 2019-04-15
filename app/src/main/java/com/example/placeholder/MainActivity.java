@@ -14,11 +14,13 @@ public class MainActivity extends AppCompatActivity {
     //creates variables for buttons and text-edit in the layout
     Button login, click;
     EditText username, password;
+    DatabaseHelper dhelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dhelper = new DatabaseHelper(this);
 
         //links the buttons/text-edit to the id's in the layout
         login = findViewById(R.id.button);
@@ -64,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     //method used to find the user record based on the username input
     public Customer findUser(View v){
-        //creates a new DatabaseHelper object
-        DatabaseHelper dhelper = new DatabaseHelper(this);
 
         //creates a new customer and uses findHandler method in DatabaseHelper to find user
         Customer customer =  dhelper.findHandler(username.getText().toString());

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
    public class DatabaseHelper extends SQLiteOpenHelper {
         //information of database
-        private static final String DATABASE_NAME = "customers.db";
+        private static final String DATABASE_NAME = "Placeholder.db";
 
         /*
         CUSTOMERS TABLE
@@ -47,7 +47,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             Price       NOT NULL
             PRIMARY KEY (ProductID)
          */
-        private static final String TABLE_NAME4 = "Products";
+        private static final String TABLE_NAME3 = "Products";
         private static final String COLUMN_PRODUCTCODE = "ProductCode";
         private static final String COLUMN_PRODUCTNAME = "ProductName";
         private static final String COLUMN_PRODUCTDESC = "ProductDesc";
@@ -63,7 +63,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             FOREIGN KEY (OrderID) references Orders (OrderID)
             FOREIGN KEY (ProductCode) references Products (ProductCode)
          */
-        private static final String TABLE_NAME3 = "Order Details";
+        private static final String TABLE_NAME4 = "\"Order Details\"";
         private static final String COLUMN_QUANTITY = "Quantity";
 
 
@@ -75,10 +75,29 @@ import android.database.sqlite.SQLiteOpenHelper;
         public void onCreate(SQLiteDatabase db) {
 
             //creates CUSTOMERS table
-            String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_CUSTOMERID +
+            String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_CUSTOMERID +
                     " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT, " + COLUMN_EMAIL + " VARCHAR, " +
                     COLUMN_PASSWORD + " VARCHAR);";
-            db.execSQL(CREATE_TABLE);
+            db.execSQL(CREATE_TABLE1);
+
+            //creates ORDERS table
+            String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
+                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_CUSTOMERID + " INTEGER, " +
+                    COLUMN_ORDERDATE + " TEXT," + " FOREIGN KEY (CustomerID) REFERENCES Orders (CustomerID));";
+            db.execSQL(CREATE_TABLE2);
+
+            //creates PRODUCTS table
+            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_PRODUCTCODE +
+                    " INTEGER PRIMARY KEY, " + COLUMN_PRODUCTNAME + " VARCHAR, " + COLUMN_PRODUCTDESC +
+                    " VARCHAR, " + COLUMN_PRICE + " INTEGER);";
+            db.execSQL(CREATE_TABLE3);
+
+            //creates ORDER DETAILS table
+            String CREATE_TABLE4 = "CREATE TABLE " + TABLE_NAME4 + " (" + COLUMN_ORDERID + " INTEGER NOT NULL, "
+                    + COLUMN_PRODUCTCODE + " INTEGER NOT NULL, " + COLUMN_PRODUCTNAME + " VARCHAR, " +
+                    COLUMN_PRODUCTDESC + " VARCHAR, " + COLUMN_QUANTITY + " INTEGER, PRIMARY KEY (OrderID, ProductCode), " +
+                    "FOREIGN KEY (OrderID) REFERENCES Orders, FOREIGN KEY (ProductCode) REFERENCES Products);";
+            db.execSQL(CREATE_TABLE4);
         }
 
         //Called when the database needs to be upgraded.
@@ -87,6 +106,9 @@ import android.database.sqlite.SQLiteOpenHelper;
         @Override
         public void onUpgrade(SQLiteDatabase db, int i, int i1) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME3);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME4);
             onCreate(db);
         }
 
