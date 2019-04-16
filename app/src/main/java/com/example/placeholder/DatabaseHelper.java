@@ -198,15 +198,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         //updates the information in a record
        //we can use the ContentValues object and the update() method of the SQLiteDatabase object
-        public boolean updateHandler(int ID, String name, String email, String password) {
+        public boolean updateHandler(String name, String email, String password) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues args = new ContentValues();
-            args.put(COLUMN_CUSTOMERID, ID);
+            //args.put(COLUMN_CUSTOMERID, ID);
             args.put(COLUMN_NAME, name);
             args.put(COLUMN_EMAIL, email);
             args.put(COLUMN_PASSWORD, password);
 
-            return db.update(TABLE_NAME1, args, COLUMN_CUSTOMERID + "=" + ID, null) > 0;
+            return db.update(TABLE_NAME1, args, COLUMN_NAME + "='" + name + "'", null) > 0;
         }
     }
 
