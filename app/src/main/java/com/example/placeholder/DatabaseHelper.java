@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
    public class DatabaseHelper extends SQLiteOpenHelper {
         //information of database
-        private static final String DATABASE_NAME = "customers.db";
+        private static final String DATABASE_NAME = "Placeholder.db";
 
         /*
         CUSTOMERS TABLE
@@ -47,7 +47,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             Price       NOT NULL
             PRIMARY KEY (ProductID)
          */
-        private static final String TABLE_NAME4 = "Products";
+        private static final String TABLE_NAME3 = "Products";
         private static final String COLUMN_PRODUCTCODE = "ProductCode";
         private static final String COLUMN_PRODUCTNAME = "ProductName";
         private static final String COLUMN_PRODUCTDESC = "ProductDesc";
@@ -63,7 +63,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             FOREIGN KEY (OrderID) references Orders (OrderID)
             FOREIGN KEY (ProductCode) references Products (ProductCode)
          */
-        private static final String TABLE_NAME3 = "Order Details";
+        private static final String TABLE_NAME4 = "\"Order Details\"";
         private static final String COLUMN_QUANTITY = "Quantity";
 
 
@@ -75,18 +75,46 @@ import android.database.sqlite.SQLiteOpenHelper;
         public void onCreate(SQLiteDatabase db) {
 
             //creates CUSTOMERS table
-            String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_CUSTOMERID +
+            String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_CUSTOMERID +
                     " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT, " + COLUMN_EMAIL + " VARCHAR, " +
                     COLUMN_PASSWORD + " VARCHAR);";
-            db.execSQL(CREATE_TABLE);
+            db.execSQL(CREATE_TABLE1);
+
+            //creates ORDERS table
+            String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
+                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_CUSTOMERID + " INTEGER, " +
+                    COLUMN_ORDERDATE + " TEXT," + " FOREIGN KEY (CustomerID) REFERENCES Orders (CustomerID));";
+            db.execSQL(CREATE_TABLE2);
+
+            //creates PRODUCTS table
+            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_PRODUCTCODE +
+                    " INTEGER PRIMARY KEY, " + COLUMN_PRODUCTNAME + " VARCHAR, " + COLUMN_PRODUCTDESC +
+                    " VARCHAR, " + COLUMN_PRICE + " INTEGER);";
+            db.execSQL(CREATE_TABLE3);
+
+            //creates ORDER DETAILS table
+            String CREATE_TABLE4 = "CREATE TABLE " + TABLE_NAME4 + " (" + COLUMN_ORDERID + " INTEGER NOT NULL, "
+                    + COLUMN_PRODUCTCODE + " INTEGER NOT NULL, " + COLUMN_PRODUCTNAME + " VARCHAR, " +
+                    COLUMN_PRODUCTDESC + " VARCHAR, " + COLUMN_QUANTITY + " INTEGER, PRIMARY KEY (OrderID, ProductCode), " +
+                    "FOREIGN KEY (OrderID) REFERENCES Orders, FOREIGN KEY (ProductCode) REFERENCES Products);";
+            db.execSQL(CREATE_TABLE4);
         }
+
+        //Called when the database needs to be upgraded.
+        // The implementation should use this method to drop tables, add tables,
+        // or do anything else it needs to upgrade to the new schema version
         @Override
         public void onUpgrade(SQLiteDatabase db, int i, int i1) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME3);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME4);
             onCreate(db);
         }
 
 
+        //loads the entire table so you can display it
+       //We use the rawQuery() method of a SQLiteDatabase object to implement SQL statement and display result via a Cursor object
         public String loadHandler() {
 
             String result = "";
@@ -105,6 +133,10 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
             return result;
         }
+
+        //we must use the ContentValues object with the put() method that is used to assign data to ContentsValues object
+        //and then use insert() method of SQLiteDatabase object to insert data to the database
+       //parameter is new customer object
         public void addHandler(Customer customer) {
 
             ContentValues values = new ContentValues();
@@ -116,6 +148,10 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
         }
 
+
+        //finds information in the database by condition
+       //parameter is the email/username
+       //method returns the customer object linked to that email/username
        public Customer findHandler(String cEmail) {
            String query = "Select * FROM " + TABLE_NAME1 + " WHERE " + COLUMN_EMAIL + " = " + "'" + cEmail + "'";
            SQLiteDatabase db = this.getWritableDatabase();
@@ -134,6 +170,12 @@ import android.database.sqlite.SQLiteOpenHelper;
            return customer;
        }
 
+
+       //deletes a record by condition
+       //accepts a name and deletes the row/record affiliated with that name
+       //We will save the result that is returned from the implementation of the rawQuery() method
+       //of the SQLiteDatabase object into a Cursor object and find the matching result in this object.
+       // In the final step, we use the delete() method of the SQLiteDatabase object to delete the record
         public boolean deleteHandler(String name) {
 
             boolean result = false;
@@ -153,15 +195,18 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.close();
             return result;
         }
-        public boolean updateHandler(int ID, String name, String email, String password) {
+
+        //updates the information in a record
+       //we can use the ContentValues object and the update() method of the SQLiteDatabase object
+        public boolean updateHandler(String name, String email, String password) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues args = new ContentValues();
-            args.put(COLUMN_CUSTOMERID, ID);
+            //args.put(COLUMN_CUSTOMERID, ID);
             args.put(COLUMN_NAME, name);
             args.put(COLUMN_EMAIL, email);
             args.put(COLUMN_PASSWORD, password);
 
-            return db.update(TABLE_NAME1, args, COLUMN_CUSTOMERID + "=" + ID, null) > 0;
+            return db.update(TABLE_NAME1, args, COLUMN_NAME + "='" + name + "'", null) > 0;
         }
     }
 

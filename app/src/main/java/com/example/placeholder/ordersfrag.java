@@ -7,10 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 public class ordersfrag extends Fragment {
 
+    //Previous Orders tab that is currently empty
 
     private static final String Tag = "ORDERS";
     @Nullable

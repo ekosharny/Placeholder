@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 public class menufrag extends Fragment{
     private static final String Tag = "MENU";
 
+    //creates variables for image buttons in menu tab
+
     private ImageButton bowls;
     private ImageButton drinks;
     private ImageButton sides;
@@ -23,6 +25,7 @@ public class menufrag extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu,container,false);
 
+        //links variables to the id in layout
         bowls = view.findViewById(R.id.bowlsButton);
         drinks =  view.findViewById(R.id.drinksButton);
         sides =  view.findViewById(R.id.sidesButton);
@@ -30,6 +33,7 @@ public class menufrag extends Fragment{
 
 
 
+        //redirects to bowls page when clicked
         bowls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +41,8 @@ public class menufrag extends Fragment{
                 startActivity(intent);
             }
         });
+
+        //redirects to drinks page when clicked
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +50,8 @@ public class menufrag extends Fragment{
                 startActivity(intent);
             }
         });
+
+        //redirects to sides page when clicked
         sides.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +59,8 @@ public class menufrag extends Fragment{
                 startActivity(intent);
             }
         });
+
+        //redirects to desserts page when clicked
         desserts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

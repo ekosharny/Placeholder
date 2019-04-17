@@ -1,30 +1,17 @@
 package com.example.placeholder;
 
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.widget.TextView;
 
 public class TabFragments extends AppCompatActivity {
     private static final String tag = "Tabs";
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
 
+    //this class basically just creates the tab fragments for menu, orders and account
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +27,7 @@ public class TabFragments extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    //creates the tabs
     private void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
             adapter.addFragment(new menufrag(), "MENU");
