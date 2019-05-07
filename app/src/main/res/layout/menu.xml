@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageButton
+    <Button
+        android:id="@+id/bowlsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bowlz"
+        android:text="@string/bowls"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/sidesButton"
+        app:layout_constraintEnd_toStartOf="@+id/drinksButton"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<ImageButton
         android:contentDescription="@string/bowls"
         android:id="@+id/bowlsButton"
         android:layout_width="152dp"
@@ -21,12 +45,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.185"
-        app:srcCompat="@drawable/poke" />
+        app:srcCompat="@drawable/poke" />-->
 
-    <ImageButton
+    <Button
+        android:id="@+id/drinksButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/drinks"
+        android:text="@string/drinks"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/dessertsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bowlsButton"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--<ImageButton
         android:id="@+id/drinksButton"
         android:layout_width="152dp"
-        android:layout_height="203dp"
+        android:layout_height="264dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -40,32 +86,77 @@
         app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185"
-        app:srcCompat="@drawable/juice" />
+        app:layout_constraintVertical_bias="0.133"
+        app:srcCompat="@drawable/juice" />-->
 
-    <ImageButton
+    <Button
+        android:id="@+id/sidesButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/sides"
+        android:text="@string/sides"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dessertsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bowlsButton" />
+
+
+    <!--<ImageButton
         android:id="@+id/sidesButton"
         android:layout_width="152dp"
-        android:layout_height="203dp"
+        android:layout_height="264dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/sides"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bowlsButton"
-        app:layout_constraintVertical_bias="0.359"
-        app:srcCompat="@drawable/guac" />
+        app:layout_constraintVertical_bias="0.404"
+        app:srcCompat="@drawable/guac" />-->
 
-    <ImageButton
+
+    <Button
+        android:id="@+id/dessertsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/desserts"
+        android:text="@string/desserts"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sidesButton"
+        app:layout_constraintTop_toBottomOf="@+id/drinksButton" />
+
+    <!--<ImageButton
         android:id="@+id/dessertsButton"
         android:layout_width="152dp"
-        android:layout_height="203dp"
+        android:layout_height="264dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -78,6 +169,6 @@
         app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drinksButton"
-        app:layout_constraintVertical_bias="0.359"
-        app:srcCompat="@drawable/cheesecake" />
+        app:layout_constraintVertical_bias="0.504"
+        app:srcCompat="@drawable/cheesecake" />-->
 </android.support.constraint.ConstraintLayout>
