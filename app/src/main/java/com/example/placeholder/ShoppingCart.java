@@ -11,7 +11,7 @@ public class ShoppingCart extends AppCompatActivity {
 
         Item item;
         String itemName;
-        double itemPrice;
+        int itemPrice;
         z = 0;
         //
         //TODO:SYSTEM INPUT!
@@ -20,7 +20,7 @@ public class ShoppingCart extends AppCompatActivity {
         Cart cart1 = new Cart();
         itemName = "regbowl";
 
-        itemPrice = 8.0;
+        itemPrice = 8;
         cart1.addToCart(itemName, itemPrice);
     }
 }

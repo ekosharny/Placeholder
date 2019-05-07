@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 //if username/email exists in the database but the password doesn't match the input, displays message
                 if(customer !=null) {
                     if (username.getText().toString().equals(customer.getEmail()) && password.getText().toString().equals(customer.getPassword())) {
-                        startActivity(new Intent(MainActivity.this, TabFragments.class));
+                        startActivity(new Intent(MainActivity.this, Main2Activity.class));
                     }
                     else if (username.getText().toString().equals(customer.getEmail()) && password.getText().toString() != (customer.getPassword())) {
                         Toast.makeText(getApplicationContext(), "Wrong password",
