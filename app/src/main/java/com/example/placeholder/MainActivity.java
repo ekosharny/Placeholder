@@ -2,78 +2,102 @@ package com.example.placeholder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //creates variables for buttons and text-edit in the layout
-    Button login, click;
-    EditText username, password;
-    DatabaseHelper dhelper;
+    private TextView mTextMessage;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        dhelper = new DatabaseHelper(this);
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        //links the buttons/text-edit to the id's in the layout
-        login = findViewById(R.id.button);
-        username = findViewById(R.id.username);
-        password =  findViewById(R.id.password);
-        click = findViewById(R.id.click);
-
-        //gives the login button an action
-        login.setOnClickListener(new OnClickListener(){
-            public void onClick(View v){
-                //creates a new customer object and calls findUser which uses username to find the record
-                Customer customer = findUser(v);
-
-                //if username/email exists in the database and the password matches the input, redirects to next page
-                //if username/email exists in the database but the password doesn't match the input, displays message
-                if(customer !=null) {
-                    if (username.getText().toString().equals(customer.getEmail()) && password.getText().toString().equals(customer.getPassword())) {
-                        startActivity(new Intent(MainActivity.this, Main2Activity.class));
-                    }
-                    else if (username.getText().toString().equals(customer.getEmail()) && password.getText().toString() != (customer.getPassword())) {
-                        Toast.makeText(getApplicationContext(), "Wrong password",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-                //display message if username/email doesn't exist in the database
-                else
-                    Toast.makeText(getApplicationContext(), "Account doesn't exist",
-                            Toast.LENGTH_SHORT).show();
-
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_menu:
+                    mTextMessage.setText("Menu");
+                    return true;
+                case R.id.navigation_featured:
+                    mTextMessage.setText("Featured");
+                    return true;
+                case R.id.navigation_cart:
+                    mTextMessage.setText("Cart");
+                    return true;
             }
-        });
-
-        //click button redirects users to "sign up with new account" page
-        click.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
-            }
-        });
-
-
-    }
-
-    //method used to find the user record based on the username input
-    public Customer findUser(View v){
-
-        //creates a new customer and uses findHandler method in DatabaseHelper to find user
-        Customer customer =  dhelper.findHandler(username.getText().toString());
-        //returns the customer found in database if not null
-        if(customer!=null){
-            return customer;
+            return false;
         }
-        else
-            return null;
-    }
+    };
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menulist, menu);
+            setTitle("PlaceHolder");
+            return true;
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            Toolbar toolbar= findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            BottomNavigationView navigation = findViewById(R.id.navigation);
+            navigation.setOnNavigationItemSelectedListener(navListener);
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new menufrag()).commit();
+        }
+
+        private BottomNavigationView.OnNavigationItemSelectedListener navListener=
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Fragment selectedFragment = null;
+                        switch(menuItem.getItemId()){
+                            case R.id.navigation_menu:
+                                selectedFragment= new menufrag();
+
+                            break;
+
+                        }
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,
+                                selectedFragment).commit();
+                        return true;
+                    }
+                };
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch(item.getItemId()) {
+                case R.id.notification_icon:
+                    Toast.makeText(this, "Notifications", Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.dropdown_account:
+                    Toast.makeText(this, "Account", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, accountfrag.class));
+                    return true;
+                case R.id.dropdown_previous:
+                    Toast.makeText(this, "Previous Orders", Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.dropdown_settings:
+                    Intent intent4 = new Intent(this, settings.class);
+                    startActivity(intent4);
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+
 }
+

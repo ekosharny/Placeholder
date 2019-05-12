@@ -44,7 +44,7 @@ public class settings extends AppCompatActivity {
                     else
                         Toast.makeText(getApplicationContext(), "Couldn't delete account", Toast.LENGTH_SHORT).show();
 
-                    startActivity(new Intent(settings.this, MainActivity.class));
+                    startActivity(new Intent(settings.this, SignIn.class));
                 }
 
                 //display message if username doesn't exist in database or password is wrong

@@ -10,23 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Main2Activity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_main2"></activity>
-        <activity android:name=".ViewDatabase" />
         <activity android:name=".SignUp" />
         <activity android:name=".settings" />
         <activity android:name=".desserts" />
         <activity android:name=".sides" />
         <activity android:name=".drinks" />
+        <activity android:name=".accountfrag" />
         <activity
             android:name=".bowls"
             android:label="@string/title_activity_bowls"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".TabFragments"
-            android:label="@string/title_activity_tab_fragments"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
