@@ -84,14 +84,16 @@ public class Main2Activity extends AppCompatActivity {
                     Toast.makeText(this, "Notifications", Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.dropdown_account:
-                    Toast.makeText(this,"Account", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Account", Toast.LENGTH_SHORT).show();
+                    //Intent intent2 = new Intent(this, accountfrag.class);
+                    //startActivity(intent2);
                     return true;
                 case R.id.dropdown_previous:
                     Toast.makeText(this, "Previous Orders", Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.dropdown_settings:
-                    Intent intent = new Intent(this, settings.class);
-                    startActivity(intent);
+                    Intent intent4 = new Intent(this, settings.class);
+                    startActivity(intent4);
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);

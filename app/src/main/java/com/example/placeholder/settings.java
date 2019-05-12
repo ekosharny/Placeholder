@@ -117,7 +117,7 @@ public class settings extends AppCompatActivity {
     }
 
     //this method updates whatever the uses changes
-    //the if statement tests for different possibilites of input
+    //the if statement tests for different possibilities of input
     public boolean updateCustomer(Customer customer){
         DatabaseHelper dhelper = new DatabaseHelper(this);
 

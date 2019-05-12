@@ -22,13 +22,12 @@ public class accountfrag extends Fragment {
     private Button viewT;
 
     @Nullable
-    //@Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.account, container, false);
 
         //link buttons to id of elements in layout
-        settings = (Button) view.findViewById(R.id.settings);
-        logout = (Button) view.findViewById(R.id.logout);
+        settings = view.findViewById(R.id.settings);
+        logout = view.findViewById(R.id.logout);
         viewT = view.findViewById(R.id.viewTables);
 
 
