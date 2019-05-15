@@ -18,7 +18,6 @@ public class accountfrag extends AppCompatActivity {
 
     //create variables for the buttons in the layout
     private Button logout;
-    FirebaseAuth user;
     TextView email;
     String demail;
 
@@ -42,7 +41,6 @@ public class accountfrag extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
 
             demail = user.getEmail();

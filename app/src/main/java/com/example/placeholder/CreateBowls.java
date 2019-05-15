@@ -3,13 +3,15 @@ package com.example.placeholder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class sides extends AppCompatActivity {
-
+public class CreateBowls extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sides);
+        setContentView(R.layout.activity_create_bowls);
+
+
+
 
 
     }

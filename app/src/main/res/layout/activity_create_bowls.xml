@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateBowls" >
+
+    <Button
+        android:id="@+id/backButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginRight="106dp"
+        android:layout_marginBottom="683dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="683dp"
+        android:text="Add To Cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        style="@android:style/Widget.Material.ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="659dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbarStyle="insideOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/baseTV"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:text="CHOOSE YOUR BASE:"
+                android:textSize="18sp"
+                app:fontFamily="@font/coiny" />
+
+            <CheckBox
+                android:id="@+id/whiteRiceBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="White Rice" />
+
+            <CheckBox
+                android:id="@+id/brownRiceBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brown Rice" />
+
+            <CheckBox
+                android:id="@+id/mashedPotatoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mashed Potato" />
+
+            <CheckBox
+                android:id="@+id/quinoaBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quinoa" />
+
+            <CheckBox
+                android:id="@+id/mixedGreensBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mixed Greens" />
+
+            <TextView
+                android:id="@+id/proteinTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE YOUR PROTEIN:"
+                android:textSize="18sp"
+                app:fontFamily="@font/coiny" />
+
+            <CheckBox
+                android:id="@+id/chickenBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chicken" />
+
+            <CheckBox
+                android:id="@+id/spicyTunaBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spicy Tuna" />
+
+            <CheckBox
+                android:id="@+id/shrimpBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shrimp" />
+
+            <CheckBox
+                android:id="@+id/tofuBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tofu" />
+
+            <CheckBox
+                android:id="@+id/beefBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beef" />
+
+            <CheckBox
+                android:id="@+id/salmonBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Salmon" />
+
+            <TextView
+                android:id="@+id/veggiesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE YOUR VEGGIES:"
+                android:textSize="18sp"
+                app:fontFamily="@font/coiny" />
+
+            <CheckBox
+                android:id="@+id/onionsBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Onions" />
+
+            <CheckBox
+                android:id="@+id/cabbageBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cabbage" />
+
+            <CheckBox
+                android:id="@+id/cherryTomatoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cherry Tomatoes" />
+
+            <CheckBox
+                android:id="@+id/cucumberBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cucumber" />
+
+            <CheckBox
+                android:id="@+id/dicedTomatoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Diced Tomatoes" />
+
+            <CheckBox
+                android:id="@+id/carrotsBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Carrots" />
+
+            <CheckBox
+                android:id="@+id/peppersBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Peppers" />
+
+            <TextView
+                android:id="@+id/toppingsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE YOUR TOPPINGS:"
+                android:textSize="18sp"
+                app:fontFamily="@font/coiny" />
+
+            <CheckBox
+                android:id="@+id/avocadoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Avacodo" />
+
+            <CheckBox
+                android:id="@+id/sesameBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sesame Seeds" />
+
+            <CheckBox
+                android:id="@+id/masagoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Masago" />
+
+            <TextView
+                android:id="@+id/sauceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE YOUR SAUCE:"
+                android:textSize="18sp"
+                app:fontFamily="@font/coiny" />
+
+            <CheckBox
+                android:id="@+id/soyBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soy" />
+
+            <CheckBox
+                android:id="@+id/duckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duck" />
+
+            <CheckBox
+                android:id="@+id/srirachaBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sriracha" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
