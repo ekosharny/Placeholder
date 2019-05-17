@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class bowls extends AppCompatActivity {
 
-    Button create;
+    Button create, premade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +17,16 @@ public class bowls extends AppCompatActivity {
         setContentView(R.layout.activity_bowls);
 
         create=findViewById(R.id.createButton);
+        premade=findViewById(R.id.premadeButton);
 
         create.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(bowls.this, CreateBowls.class));
+            }
+        });
+        premade.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(bowls.this, PremadeBowls.class));
             }
         });
     }
