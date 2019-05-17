@@ -183,6 +183,12 @@
                 android:text="Diced Tomatoes" />
 
             <CheckBox
+                android:id="@+id/jalapenosBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jalapenos" />
+
+            <CheckBox
                 android:id="@+id/carrotsBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,6 +213,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Avacodo" />
+
+            <CheckBox
+                android:id="@+id/pineappleBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pineapple" />
+
+            <CheckBox
+                android:id="@+id/edamameBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edamame" />
 
             <CheckBox
                 android:id="@+id/sesameBox"
@@ -239,6 +257,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Duck" />
+
+            <CheckBox
+                android:id="@+id/ranchBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ranch" />
+
+            <CheckBox
+                android:id="@+id/spicyMayoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spicy Mayo" />
 
             <CheckBox
                 android:id="@+id/srirachaBox"
