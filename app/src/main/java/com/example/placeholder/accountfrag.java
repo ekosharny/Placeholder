@@ -1,5 +1,6 @@
 package com.example.placeholder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -36,6 +37,7 @@ public class accountfrag extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                startActivity(new Intent(accountfrag.this, SignIn.class));
             }
         });
 
