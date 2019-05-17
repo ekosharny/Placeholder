@@ -32,7 +32,7 @@ public class menufrag extends Fragment{
         bowls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), bowls.class);
+                Intent intent = new Intent(getActivity(), PremadeBowls.class);
                 startActivity(intent);
             }
         });
