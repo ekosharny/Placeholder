@@ -1,0 +1,402 @@
+{
+  "Menu": {
+    "01": {
+      "Name": "Bowls"
+    },
+    "02": {
+      "Name": "Sides"
+    },
+    "03": {
+      "Name": "Drinks"
+    },
+    "04": {
+      "Name": "Desserts"
+    }
+  },
+
+  "Bowls": {
+    "01": {
+      "Name": "Base"
+    },
+    "02": {
+      "Name": "Protein"
+    },
+    "03": {
+      "Name": "Veggies"
+    },
+    "04": {
+      "Name": "Toppings"
+    },
+    "05": {
+      "Name": "Sauce"
+    }
+  },
+
+  "Base": {
+    "01": {
+      "Name": "White Rice",
+      "Image": "https://hips.hearstapps.com/vidthumb/images/delish-u-rice-2-1529079587.jpg",
+      "BowlsId": "01"
+    },
+    "02": {
+      "Name": "Brown Rice",
+      "Image": "https://dfbkuy5licyr9.cloudfront.net/wp-content/uploads/2017/05/iStock-495200096.jpg?x19846",
+      "BowlsId": "01"
+    },
+    "03": {
+      "Name": "Mashed Potato",
+      "Image": "https://images-gmi-pmc.edge-generalmills.com/c3262b45-029c-4843-a11f-59acb4d48086.jpg",
+	"BowlsId": "01"
+    },
+    "04": {
+      "Name": "Quinoa",
+      "Image": "http://images.media-allrecipes.com/userphotos/960x960/4516748.jpg",
+"BowlsId": "01"
+    },
+    "05": {
+      "Name": "Mixed Greens",
+      "Image": "http://scibosnian.com/wp-content/uploads/2017/12/Mixed_Greens_6.jpg",
+"BowlsId": "01"
+    }
+  },
+
+
+  "Protein": {
+    "01": {
+      "Name": "Chicken",
+      "Image": "https://img1.mashed.com/img/gallery/how-to-cook-perfect-chicken-x-different-ways/-1479924176.jpg",
+"BowlsId": "02"
+    },
+    "02": {
+      "Name": "Spicy Tuna",
+      "Image": "https://www.justonecookbook.com/wp-content/uploads/2018/07/Spicy-Tuna-w600.jpg",
+"BowlsId": "02"
+    },
+    "03": {
+      "Name": "Shrimp",
+      "Image": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/22/1496355937-skillet-garlic-cilantro-shrimp.jpg",
+"BowlsId": "02"
+    },
+    "04": {
+      "Name": "Tofu",
+      "Image": "https://i0.wp.com/www.healthline.com/hlcmsresource/images/AN_images/what-is-tofu-1296x728-feature.jpg?w=1155&h=1528",
+"BowlsId": "02"
+    },
+    "05": {
+      "Name": "Beef",
+      "Image": "https://www.dinneratthezoo.com/wp-content/uploads/2018/06/slow-cooker-mongolian-beef.jpg"
+,"BowlsId": "02"
+    },
+    "06": {
+      "Name": "Salmon",
+      "Image": "https://www.onceuponachef.com/images/2018/02/pan-seared-salmon--1024x843.jpg",
+"BowlsId": "02"
+    }
+  },
+
+  "Veggies": {
+    "01": {
+      "Name": "Onions",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "02": {
+      "Name": "Cabbage",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "03": {
+      "Name": "Cherry Tomatoes",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "04": {
+      "Name": "Cucumber",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "05": {
+      "Name": "Diced Tomatoes",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "06": {
+      "Name": "Carrots",
+      "Image": "",
+"BowlsId": "03"
+    },
+    "07": {
+      "Name": "Peppers",
+      "Image": "",
+"BowlsId": "03"
+    }
+  },
+
+  "Toppings": {
+    "01": {
+      "Name": "Avocado",
+      "Image": "",
+"BowlsId": "04"
+    },
+    "02": {
+      "Name": "Sesame Seeds",
+      "Image": "",
+"BowlsId": "04"
+    },
+    "03": {
+      "Name": "Masago",
+      "Image": "",
+"BowlsId": "04"
+    }
+  },
+  "Sauce": {
+    "01": {
+      "Name": "Soy",
+      "Image": "",
+      "BowlsId": "05"
+    },
+    "02": {
+      "Name": "Duck",
+      "Image": "",
+      "BowlsId": "05"
+    },
+    "03": {
+      "Name": "Sriracha",
+      "Image": "",
+      "BowlsId": "05"
+    }
+  },
+  "Sides": {
+    "01": {
+      "Name": "Chips",
+      "Image": "",
+      "MenuId": "02"
+    },
+    "02": {
+      "Name": "Bread",
+      "Image": "",
+      "MenuId": "02"
+    },
+    "03": {
+      "Name": "Soup",
+      "Image": "",
+      "MenuId": "02"
+    }
+  },
+  "Chips": {
+    "01": {
+      "Name": "Potato",
+      "Image": "",
+      "SidesId": "01"
+    },
+    "02": {
+      "Name": "Sour Cream & Onion",
+      "Image": "",
+      "SidesId": "01"
+    },
+    "03": {
+      "Name": "Cheese",
+      "Image": "",
+      "SidesId": "01"
+    }
+  },
+  "Bread": {
+    "01": {
+      "Name": "White",
+      "Image": "",
+      "SidesId": "02"
+    },
+    "02": {
+      "Name": "Whole Wheat",
+      "Image": "",
+      "SidesId": "02"
+    },
+    "03": {
+      "Name": "Whole Grain",
+      "Image": "",
+      "SidesId": "02"
+    }
+  },
+  "Soup": {
+    "01": {
+      "Name": "French Onion",
+      "Image": "",
+      "SidesId": "03"
+    },
+    "02": {
+      "Name": "Clam Chowder",
+      "Image": "",
+      "SidesId": "03"
+    },
+    "03": {
+      "Name": "Veggie",
+      "Image": "",
+      "SidesId": "03"
+    },
+    "04": {
+      "Name": "Chicken Noodle",
+      "Image": "",
+      "SidesId": "03"
+    }
+  },
+  "Drinks": {
+    "01": {
+      "Name": "Soda",
+      "MenuId": "03",
+      "Image": ""
+    },
+    "02": {
+      "Name": "Juice",
+      "MenuId": "03",
+      "Image": ""
+    }
+  },
+  "Soda": {
+    "01": {
+      "Name": "Coca-Cola",
+      "DrinksId": "01",
+      "Image": ""
+    },
+    "02": {
+      "Name": "Pepsi",
+      "DrinksId": "01",
+      "Image": ""
+    },
+    "03": {
+      "Name": "Mountain Dew",
+      "DrinksId": "01",
+      "Image": ""
+    },
+    "04": {
+      "Name": "Sprite",
+      "DrinksId": "01",
+      "Image": ""
+    },
+    "05": {
+      "Name": "Fanta",
+      "DrinksId": "01",
+      "Image": ""
+    }
+  },
+  "Juice": {
+    "01": {
+      "Name": "Apple",
+      "DrinksId": "02",
+      "Image": ""
+    },
+    "02": {
+      "Name": "Cranberry",
+      "DrinksId": "02",
+      "Image": ""
+    },
+    "03": {
+      "Name": "Orange",
+      "DrinksId": "02",
+      "Image": ""
+    },
+    "04": {
+      "Name": "Lemonade",
+      "DrinksId": "02",
+      "Image": ""
+    },
+    "05": {
+      "Name": "Pineapple",
+      "DrinksId": "02",
+      "Image": ""
+    }
+  },
+  "Desserts": {
+    "01": {
+      "Name": "Cheese Cake",
+      "Image": "",
+      "MenuId": "04"
+    },
+    "02": {
+      "Name": "Cookies",
+      "Image": "",
+      "MenuId": "04"
+    },
+    "03": {
+      "Name": "Cupcakes",
+      "Image": "",
+      "MenuId": "04"
+    }
+  },
+  "Cheese": {
+    "01": {
+      "Name": "Classic",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "02": {
+      "Name": "Red Velvet",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "03": {
+      "Name": "Chocolate",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "04": {
+      "Name": "Strawberry Swirl",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "05": {
+      "Name": "Blueberry",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "06": {
+      "Name": "Toffee",
+      "Image": "",
+      "DessertId": "01"
+    },
+    "07": {
+      "Name": "Peanut Butter",
+      "Image": "",
+      "DessertId": "01"
+    }
+  },
+  "Cookies": {
+    "01": {
+      "Name": "Chocolate Chip",
+      "Image": "",
+      "DessertId": "02"
+    },
+    "02": {
+      "Name": "Oatmeal Raisin",
+      "Image": "",
+      "DessertId": "02"
+    },
+    "03": {
+      "Name": "Peanut Butter",
+      "Image": "",
+      "DessertId": "02"
+    },
+    "04": {
+      "Name": "White Macadamia",
+      "Image": "",
+      "DessertId": "02"
+    }
+  },
+  "Cupcakes": {
+    "01": {
+      "Name": "Red Velvet",
+      "Image": "",
+      "DessertId": "03"
+    },
+    "02": {
+      "Name": "Chocolate",
+      "Image": "",
+      "DessertId": "03"
+    },
+    "03": {
+      "Name": "Vanilla Sprinkle",
+      "Image": "",
+      "DessertId": "03"
+    }
+  }
+
+}
