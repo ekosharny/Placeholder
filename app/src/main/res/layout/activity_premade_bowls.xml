@@ -11,8 +11,8 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="           Pre-Made Bowls"
+        android:layout_height="98dp"
+        android:text="          Pre-Made Bowls"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
         app:fontFamily="@font/coiny" />
@@ -238,6 +238,15 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/createOwnBowlButton"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Create Your Own Bowl"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

@@ -20,10 +20,6 @@
         <activity android:name=".sides" />
         <activity android:name=".drinks" />
         <activity android:name=".accountfrag" />
-        <activity
-            android:name=".bowls"
-            android:label="@string/title_activity_bowls"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
