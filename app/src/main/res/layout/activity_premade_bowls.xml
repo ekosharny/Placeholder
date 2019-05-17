@@ -26,7 +26,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/caliBox"
+                android:id="@+id/caliBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cali Bowl"
@@ -45,7 +45,7 @@
                 android:text="Brown Rice, Salmon, Onion, Diced Tomatoes, Peppers, Masago, Spicy Mayo" />
 
             <Button
-                android:id="@+id/addButton1"
+                android:id="@+id/addCali"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 android:text="Quinoa, Spicy Tuna, Diced Tomatoes, Cabbage, Carrots, Sesame Seeds, Soy Sauce" />
 
             <Button
-                android:id="@+id/addButton2"
+                android:id="@+id/addTriTri"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/macfergusBox"
+                android:id="@+id/macfergusBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MacFergus Bowl"
@@ -119,7 +119,7 @@
                 android:text="Mashed Potatoes, Beef, Peppers, Cucumbers, Cherry Tomatoes, Avocado, Sriracha" />
 
             <Button
-                android:id="@+id/addButton3"
+                android:id="@+id/addMacFergus"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/hawaiianBox"
+                android:id="@+id/hawaiianBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hawaiian Bowl"
@@ -156,7 +156,7 @@
                 android:text="White Rice, Spicy Tuna, Jalapenos, Cucumber, Pineapple, Edamame, Duck Sauce" />
 
             <Button
-                android:id="@+id/addButton4"
+                android:id="@+id/addHawaiian"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                 android:text="Quinoa, Tofu, Cucumber, Carrots, Peppers, Edamame, Avocado, Spicy Mayo" />
 
             <Button
-                android:id="@+id/addButton5"
+                android:id="@+id/addVegetarian"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
                 android:text="Mixed Greens, Chicken, Cabbage, Carrots, Cherry Tomatoes, Edamame, Sesame Seeds, Ranch" />
 
             <Button
-                android:id="@+id/addButton6"
+                android:id="@+id/addFarmer"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
