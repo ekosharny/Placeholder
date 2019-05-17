@@ -239,10 +239,10 @@
                 android:text="Masago" />
 
             <TextView
-                android:id="@+id/sauceTV"
+                android:id="@+id/dressingTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR SAUCE:"
+                android:text="CHOOSE YOUR DRESSING:"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -250,13 +250,13 @@
                 android:id="@+id/soyBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Soy" />
+                android:text="Soy Sauce" />
 
             <CheckBox
                 android:id="@+id/duckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Duck" />
+                android:text="Duck Sauce" />
 
             <CheckBox
                 android:id="@+id/ranchBox"
