@@ -74,43 +74,43 @@ public class CreateBowls extends AppCompatActivity {
         srirachab=findViewById(R.id.srirachaBox);
 
         //BASE STRINGS
-        whiteRice = findViewById(R.id.whiteRiceBox).toString();
-        brownRice = findViewById(R.id.brownRiceBox).toString();
-        mashedPotato = findViewById(R.id.mashedPotatoBox).toString();
-        quinoa = findViewById(R.id.quinoaBox).toString();
-        mixedGreens = findViewById(R.id.mixedGreensBox).toString();
+        whiteRice = "White Rice";
+        brownRice = "Brown Rice";
+        mashedPotato = "Mashed Potato";
+        quinoa = "Quinoa";
+        mixedGreens = "Mixed Greens";
 
         //PROTEIN STRINGS
-        chicken = findViewById(R.id.chickenBox).toString();
-        spicyTuna = (findViewById(R.id.spicyTunaBox)).toString();
-        shrimp=(findViewById(R.id.shrimpBox)).toString();
-        tofu=(findViewById(R.id.tofuBox)).toString();
-        beef=(findViewById(R.id.beefBox)).toString();
-        salmon=(findViewById(R.id.salmonBox)).toString();
+        chicken = "Chicken";
+        spicyTuna = "Spicy Tuna";
+        shrimp="Shrimp";
+        tofu="Tofu";
+        beef="Beef";
+        salmon="Salmon";
 
         //VEGGIES STRINGS
-        onions =(findViewById(R.id.onionsBox)).toString();
-        cabbage=(findViewById(R.id.cabbageBox)).toString();
-        cherryTomatoes=(findViewById(R.id.cherryTomatoBox)).toString();
-        cucumber=(findViewById(R.id.cucumberBox)).toString();
-        dicedTomatoes=(findViewById(R.id.dicedTomatoBox)).toString();
-        jalapenos=(findViewById(R.id.jalapenosBox)).toString();
-        carrots =(findViewById(R.id.carrotsBox)).toString();
-        peppers=(findViewById(R.id.peppersBox)).toString();
+        onions ="Onions";
+        cabbage="Cabbage";
+        cherryTomatoes="Cherry Tomatoes";
+        cucumber="Cucumber";
+        dicedTomatoes="Diced Tomatoes";
+        jalapenos="Jalapenos";
+        carrots ="Carrots";
+        peppers="Peppers";
 
         //TOPPINGS STRINGS
-        avocado=(findViewById(R.id.avocadoBox)).toString();
-        pineapple=(findViewById(R.id.pineappleBox)).toString();
-        edamame=(findViewById(R.id.edamameBox)).toString();
-        sesameSeeds=(findViewById(R.id.sesameBox)).toString();
-        masago=(findViewById(R.id.masagoBox)).toString();
+        avocado="Avocado";
+        pineapple="Pineapple";
+        edamame="Edamame";
+        sesameSeeds="Sesame Seeds";
+        masago="Masago";
 
         //DRESSING STRINGS
-        soy=(findViewById(R.id.soyBox)).toString();
-        duck=(findViewById(R.id.duckBox)).toString();
-        ranch=(findViewById(R.id.ranchBox)).toString();
-        spicyMayo=(findViewById(R.id.spicyMayoBox)).toString();
-        sriracha=(findViewById(R.id.srirachaBox)).toString();
+        soy="Soy Sauce";
+        duck="Duck Sauce";
+        ranch="Ranch";
+        spicyMayo="Spicy Mayo";
+        sriracha="Sriracha";
 
 
         add=findViewById(R.id.addCreateBowl);
