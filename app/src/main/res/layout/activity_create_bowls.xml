@@ -37,35 +37,45 @@
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
-            <CheckBox
-                android:id="@+id/whiteRiceBox"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="White Rice" />
+                android:layout_height="match_parent" >
 
-            <CheckBox
-                android:id="@+id/brownRiceBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Brown Rice" />
+                <RadioButton
+                    android:id="@+id/whiteRiceBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="White Rice" />
 
-            <CheckBox
-                android:id="@+id/mashedPotatoBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mashed Potato" />
+                <RadioButton
+                    android:id="@+id/brownRiceBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Brown Rice" />
 
-            <CheckBox
-                android:id="@+id/quinoaBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quinoa" />
+                <RadioButton
+                    android:id="@+id/mashedPotatoBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mashed Potato" />
 
-            <CheckBox
-                android:id="@+id/mixedGreensBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mixed Greens" />
+                <RadioButton
+                    android:id="@+id/quinoaBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quinoa" />
+
+                <RadioButton
+                    android:id="@+id/mixedGreensBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mixed Greens" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/proteinTV"
@@ -75,47 +85,58 @@
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
-            <CheckBox
-                android:id="@+id/chickenBox"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chicken" />
+                android:layout_height="match_parent" >
 
-            <CheckBox
-                android:id="@+id/spicyTunaBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Spicy Tuna" />
+                <RadioButton
+                    android:id="@+id/chickenBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chicken" />
 
-            <CheckBox
-                android:id="@+id/shrimpBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Shrimp" />
+                <RadioButton
+                    android:id="@+id/spicyTunaBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Spicy Tuna" />
 
-            <CheckBox
-                android:id="@+id/tofuBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tofu" />
+                <RadioButton
+                    android:id="@+id/shrimpBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Shrimp" />
 
-            <CheckBox
-                android:id="@+id/beefBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Beef" />
+                <RadioButton
+                    android:id="@+id/tofuBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tofu" />
 
-            <CheckBox
-                android:id="@+id/salmonBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Salmon" />
+                <RadioButton
+                    android:id="@+id/beefBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Beef" />
+
+                <RadioButton
+                    android:id="@+id/salmonBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Salmon" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/veggiesTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR VEGGIES: (LIMIT 3)"
+                android:text="CHOOSE YOUR VEGGIES: (NO LIMIT)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
