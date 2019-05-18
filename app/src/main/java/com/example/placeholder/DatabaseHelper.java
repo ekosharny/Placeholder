@@ -169,9 +169,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        public void addDetails(Details details) {
 
            ContentValues values = new ContentValues();
-           values.put(COLUMN_ORDERID2, details.get());
-           values.put(COLUMN_ITEM, details.get());
-           values.put(COLUMN_PRICE, details.get());
+           values.put(COLUMN_ORDERID2, details.getOrderID());
+           values.put(COLUMN_ITEM, details.getItemName());
+           values.put(COLUMN_PRICE, details.getPrice());
            SQLiteDatabase db = this.getWritableDatabase();
            db.insert(TABLE_NAME3, null, values);
            db.close();
@@ -226,9 +226,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Details details = new Details();
             if (cursor.moveToFirst()) {
                 cursor.moveToFirst();
-                details.set(cursor.getInt(0));
-                details.set(cursor.getString(1));
-                details.set(cursor.getDouble(2));
+                details.setOrderID(cursor.getInt(0));
+                details.setItemName(cursor.getString(1));
+                details.setPrice(cursor.getDouble(2));
                 cursor.close();
             } else {
                 details = null;
@@ -291,10 +291,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(query, null);
             Details details = new Details();
             if (cursor.moveToFirst()) {
-                details.set(cursor.getInt(0));
+                details.setOrderID(cursor.getInt(0));
                 db.delete(TABLE_NAME3, COLUMN_ORDERID2 + "=?",
                     new String[] {
-                            String.valueOf(details.get())
+                            String.valueOf(details.getOrderID())
                     });
                 cursor.close();
                 result = true;
@@ -306,15 +306,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //updates the information in a record
        //we can use the ContentValues object and the update() method of the SQLiteDatabase object
-        public boolean updateHandler(String name, String email, String password) {
+        public boolean updateUser(String uid, String email) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues args = new ContentValues();
-            //args.put(COLUMN_CUSTOMERID, ID);
-            args.put(COLUMN_NAME, name);
+            args.put(COLUMN_UID, uid);
             args.put(COLUMN_EMAIL, email);
-            args.put(COLUMN_PASSWORD, password);
 
-            return db.update(TABLE_NAME1, args, COLUMN_NAME + "='" + name + "'", null) > 0;
+            return db.update(TABLE_NAME1, args, COLUMN_UID + "='" + uid + "'", null) > 0;
+        }
+
+        public boolean updateOrder(int orderID, String uid) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues args = new ContentValues();
+            args.put(COLUMN_ORDERID, orderID);
+            args.put(COLUMN_UID2, uid);
+
+            return db.update(TABLE_NAME2, args, COLUMN_ORDERID + "='" + orderID + "'", null) > 0;
+        }
+        public boolean updateDetails(int orderID, String item, double price) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues args = new ContentValues();
+            args.put(COLUMN_ORDERID2, orderID);
+            args.put(COLUMN_ITEM, item);
+            args.put(COLUMN_PRICE, price);
+
+            return db.update(TABLE_NAME3, args, COLUMN_ORDERID2 + "='" + orderID + "'", null) > 0;
         }
     }
 
