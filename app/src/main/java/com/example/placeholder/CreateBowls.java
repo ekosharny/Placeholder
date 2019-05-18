@@ -220,7 +220,6 @@ public class CreateBowls extends AppCompatActivity {
 
                 Details details = new Details(1, custombowl, bowlprice);
                 AddData(details);
-
             }
         });
     }
