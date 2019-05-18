@@ -19,7 +19,7 @@ public class accountfrag extends AppCompatActivity {
 
     //create variables for the buttons in the layout
     private Button logout;
-    TextView email;
+    TextView email,viewUsersDB;
     String demail;
 
     @Override
@@ -30,6 +30,14 @@ public class accountfrag extends AppCompatActivity {
         //link buttons to id of elements in layout
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
+        viewUsersDB = findViewById(R.id.viewUsersBox);
+
+        viewUsersDB.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showUsers(view);
+            }
+        });
 
         //logout button redirects back to main page
         logout.setOnClickListener(new OnClickListener() {
@@ -59,4 +67,10 @@ public class accountfrag extends AppCompatActivity {
         email.setText(demail);
 
     }
+
+    public void showUsers(View view) {
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        viewUsersDB.setText(dbHandler.loadUsers());
+    }
+
 }
