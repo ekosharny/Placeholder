@@ -17,6 +17,8 @@ public class sides extends AppCompatActivity {
     String whitebread, wholewheat, wholegrain, sourdough, pita;
     String frenchonion, clamchowder, veggiesoup, chickennoodle;
 
+    final double chipsprice=2.00, breadprice=1.50, soupprice=4.50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

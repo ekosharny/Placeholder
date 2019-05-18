@@ -19,6 +19,8 @@ public class drinks extends AppCompatActivity {
      String greekyogurt, wholemilk, almondmilk, soymilk, coconutmilk;
      String apple, banana, orange, strawberries, blueberries;
 
+     final double sodaprice=2.00, juiceprice=3.00, smoothieprice=5.50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

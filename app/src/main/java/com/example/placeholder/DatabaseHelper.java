@@ -171,6 +171,7 @@ import android.database.sqlite.SQLiteOpenHelper;
        }
 
 
+
        //deletes a record by condition
        //accepts a name and deletes the row/record affiliated with that name
        //We will save the result that is returned from the implementation of the rawQuery() method

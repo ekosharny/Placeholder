@@ -33,7 +33,7 @@
                 android:id="@+id/baseTV"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:text="CHOOSE YOUR BASE:"
+                android:text="CHOOSE YOUR BASE: (LIMIT 1)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -71,7 +71,7 @@
                 android:id="@+id/proteinTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR PROTEIN:"
+                android:text="CHOOSE YOUR PROTEIN: (LIMIT 1)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -115,7 +115,7 @@
                 android:id="@+id/veggiesTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR VEGGIES:"
+                android:text="CHOOSE YOUR VEGGIES: (LIMIT 3)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -171,7 +171,7 @@
                 android:id="@+id/toppingsTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR TOPPINGS:"
+                android:text="CHOOSE YOUR TOPPINGS: (NO LIMIT) "
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -209,7 +209,7 @@
                 android:id="@+id/dressingTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE YOUR DRESSING:"
+                android:text="CHOOSE YOUR DRESSING: (NO LIMIT)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -246,13 +246,34 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/addtocartButton"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add To Cart"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="37dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/createprice"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="$12.00"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addtocartButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="231dp"
+            android:layout_height="wrap_content"
+            android:text="Add To Cart"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>
