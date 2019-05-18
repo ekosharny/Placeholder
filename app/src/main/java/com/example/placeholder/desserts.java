@@ -17,6 +17,8 @@ public class desserts extends AppCompatActivity {
     String chocolatechip, oatmealraisin, pbcookie, macadamia;
     String redvelvetcupcake, chocolatecupcake, vanillacupcake;
 
+    final double cakeprice=4.00, cookieprice=1.50, cupcakeprice=2.50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

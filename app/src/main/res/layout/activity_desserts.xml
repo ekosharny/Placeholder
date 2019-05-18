@@ -21,7 +21,7 @@
         android:id="@+id/cheesecakeTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cheese Cake"
+        android:text="Cheese Cake                            $4.00"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -100,7 +100,7 @@
         android:id="@+id/cookiesTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cookies"
+        android:text="Cookies                                      $1.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -160,7 +160,7 @@
         android:id="@+id/cupcakeTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cupcakes"
+        android:text="Cupcakes                                  $2.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 

@@ -18,6 +18,8 @@ public class CreateBowls extends AppCompatActivity {
     String avocado, pineapple, edamame, sesameSeeds, masago;
     String soy, duck, ranch, spicyMayo, sriracha;
 
+    final double bowlprice=12.00;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

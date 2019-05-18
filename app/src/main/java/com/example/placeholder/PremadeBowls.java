@@ -12,6 +12,9 @@ public class PremadeBowls extends AppCompatActivity {
     Button calib, tritrib, macfergusb, hawaiianb, vegeterianb, farmerb;
     String cali, tritri, macfergus, hawaiian, vegeterian, farmer;
 
+    final double caliprice=11.00, tritriprice=11.00, macfergusprice=11.50, hawaiianprice=11.00, vegetarianprice=10.00, farmerprice=11.00;
+
+
     Button create;
 
     @Override
