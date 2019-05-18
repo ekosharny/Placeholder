@@ -33,7 +33,7 @@ public class PremadeBowls extends AppCompatActivity {
         farmerb=findViewById(R.id.addFarmer);
 
         //STRINGS
-        cali=findViewById(R.id.caliBowl).toString();
+        cali=calib.getText().toString();
         tritri=findViewById(R.id.tritriBowl).toString();
         macfergus=findViewById(R.id.macfergusBowl).toString();
         hawaiian=findViewById(R.id.hawaiianBowl).toString();
