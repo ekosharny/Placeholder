@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.placeholder.Database.Order;
 import com.example.placeholder.Database.User;
+import com.example.placeholder.Database.Details;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
         //information of database
