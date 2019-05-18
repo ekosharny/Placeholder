@@ -21,7 +21,7 @@
         android:id="@+id/chipsTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Chips      $2.00"
+        android:text="Chips                                         $2.00"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -90,7 +90,7 @@
         android:id="@+id/breadTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Bread     $1.50"
+        android:text="Bread                                         $1.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -159,7 +159,7 @@
         android:id="@+id/SoupTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Soup    $4.50"
+        android:text="Soup                                          $4.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
