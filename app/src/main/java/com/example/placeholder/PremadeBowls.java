@@ -33,12 +33,12 @@ public class PremadeBowls extends AppCompatActivity {
         farmerb=findViewById(R.id.addFarmer);
 
         //STRINGS
-        cali=calib.getText().toString();
-        tritri=findViewById(R.id.tritriBowl).toString();
-        macfergus=findViewById(R.id.macfergusBowl).toString();
-        hawaiian=findViewById(R.id.hawaiianBowl).toString();
-        vegeterian =findViewById(R.id.vegetarianBowl).toString();
-        farmer=findViewById(R.id.farmerBowl).toString();
+        cali="Cali Bowl";
+        tritri="TriTri Bowl";
+        macfergus="MacFergus Bowl";
+        hawaiian="Hawaiian Bowl";
+        vegeterian = "Vegeterian Bowl";
+        farmer= "Farmer Bowl";
 
         create= findViewById(R.id.createOwnBowlButton);
 
