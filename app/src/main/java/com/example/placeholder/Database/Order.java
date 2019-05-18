@@ -4,6 +4,8 @@ public class Order {
     private int orderID;
     private String uID;
 
+    public Order(){}
+
     public Order(int orderID, String uID) {
         this.orderID = orderID;
         this.uID = uID;

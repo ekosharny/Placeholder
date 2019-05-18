@@ -1,10 +1,10 @@
 package com.example.placeholder.Database;
 
-import com.google.firebase.auth.FirebaseUser;
-
 public class User {
     private String uID;
     private String email;
+
+    public User(){}
 
     public User(String uID, String email) {
         this.uID = uID;

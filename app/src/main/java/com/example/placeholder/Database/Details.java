@@ -5,6 +5,8 @@ public class Details {
     private String itemName;
     private double price;
 
+    public Details(){}
+
     public Details(int orderID, String itemName, double price) {
         this.orderID = orderID;
         this.itemName = itemName;
