@@ -2,8 +2,11 @@ package com.example.placeholder;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+
+import com.example.placeholder.Database.Details;
 
 public class desserts extends AppCompatActivity {
 
@@ -52,7 +55,73 @@ public class desserts extends AppCompatActivity {
         chocolatecupcake = findViewById(R.id.chocolatecupcakeButton).toString();
         vanillacupcake = findViewById(R.id.vanillacupcakeButton).toString();
 
-        addToCart = findViewById(R.id.addItemsButton);
+        addToCart = findViewById(R.id.addDessertsButton);
 
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(redvelvetcakeb.isChecked()){
+                    Details details = new Details(1, redvelvetcake, cakeprice);
+                    AddData(details);
+                }
+                if(chocolatecakeb.isChecked()){
+                    Details details = new Details(1, chocolatecake, cakeprice);
+                    AddData(details);
+                }
+                if(strawberrycakeb.isChecked()){
+                    Details details = new Details(1, strawberrycake, cakeprice);
+                    AddData(details);
+                }
+                if(blueberrycakeb.isChecked()){
+                    Details details = new Details(1, blueberrycake, cakeprice);
+                    AddData(details);
+                }
+                if(toffeecakeb.isChecked()){
+                    Details details = new Details(1, toffeecake, cakeprice);
+                    AddData(details);
+                }
+                if(pbcakeb.isChecked()){
+                    Details details = new Details(1, pbcake, cakeprice);
+                    AddData(details);
+                }
+                if(chocolatechipb.isChecked()){
+                    Details details = new Details(1, chocolatechip, cookieprice);
+                    AddData(details);
+                }
+                if(oatmealraisinb.isChecked()){
+                    Details details = new Details(1, oatmealraisin, cookieprice);
+                    AddData(details);
+                }
+                if(pbcookieb.isChecked()){
+                    Details details = new Details(1, pbcookie, cookieprice);
+                    AddData(details);
+                }
+                if(macadamiab.isChecked()){
+                    Details details = new Details(1, macadamia, cookieprice);
+                    AddData(details);
+                }
+                if(redvelvetcupcakeb.isChecked()){
+                    Details details = new Details(1, redvelvetcupcake, cupcakeprice);
+                    AddData(details);
+                }
+                if(chocolatecupcakeb.isChecked()){
+                    Details details = new Details(1, chocolatecupcake, cupcakeprice);
+                    AddData(details);
+                }
+                if(vanillacupcakeb.isChecked()){
+                    Details details = new Details(1, vanillacupcake, cupcakeprice);
+                    AddData(details);
+                }
+            }
+        });
+
+    }
+
+    public void AddData(Details details) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addDetails(details);
     }
 }

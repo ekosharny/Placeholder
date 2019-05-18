@@ -184,7 +184,7 @@
                 android:id="@+id/fruitsTV"
                 android:layout_width="204dp"
                 android:layout_height="match_parent"
-                android:text="FRUITS (limit 3):"
+                android:text="FRUITS (NO LIMIT):"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -276,7 +276,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/addItemsButton"
+        android:id="@+id/addDrinksButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
