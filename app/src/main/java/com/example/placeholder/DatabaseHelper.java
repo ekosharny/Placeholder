@@ -66,7 +66,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             //creates ORDERDETAILS table
             String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_ORDERID2 +
-                    " INTEGER NOT NULL, " + COLUMN_ITEM + " VARCHAR NOT NULL, " + COLUMN_PRICE + " INTEGER, PRIMARY KEY(OrderID, ItemName));";
+                    " INTEGER NOT NULL, " + COLUMN_ITEM + " VARCHAR NOT NULL, " + COLUMN_PRICE + " DOUBLE, PRIMARY KEY(OrderID, ItemName));";
             db.execSQL(CREATE_TABLE3);
 
         }
@@ -83,6 +83,7 @@ import android.database.sqlite.SQLiteOpenHelper;
         }
 
 
+        //USERS TABLE
         //loads the entire table so you can display it
        //We use the rawQuery() method of a SQLiteDatabase object to implement SQL statement and display result via a Cursor object
         public String loadUsers() {
@@ -92,17 +93,49 @@ import android.database.sqlite.SQLiteOpenHelper;
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(query, null);
             while (cursor.moveToNext()) {
-                int result_0 = cursor.getInt(0);
+                String result_0 = cursor.getString(0);
                 String result_1 = cursor.getString(1);
-                String result_2 = cursor.getString(2);
-                String result_3 = cursor.getString(3);
-                result += result_0 + " " + result_1 + " " + result_2 + " " + result_3 +
-                        System.getProperty("line.separator");
+                result += result_0 + " " + result_1 + " " + System.getProperty("line.separator");
             }
             cursor.close();
             db.close();
             return result;
         }
+
+        //ORDERS TABLE
+       public String loadOrders() {
+
+           String result = "";
+           String query = "Select*FROM " + TABLE_NAME2;
+           SQLiteDatabase db = this.getWritableDatabase();
+           Cursor cursor = db.rawQuery(query, null);
+           while (cursor.moveToNext()) {
+               int result_0 = cursor.getInt(0);
+               String result_1 = cursor.getString(1);
+               result += result_0 + " " + result_1 + " " + System.getProperty("line.separator");
+           }
+           cursor.close();
+           db.close();
+           return result;
+       }
+
+       //ORDERS DETAILS TABLE
+       public String loadOrderDetails() {
+
+           String result = "";
+           String query = "Select*FROM " + TABLE_NAME3;
+           SQLiteDatabase db = this.getWritableDatabase();
+           Cursor cursor = db.rawQuery(query, null);
+           while (cursor.moveToNext()) {
+               int result_0 = cursor.getInt(0);
+               String result_1 = cursor.getString(1);
+               double result_2 = cursor.getDouble(2);
+               result += result_0 + " " + result_1 + " $" + result_2 + System.getProperty("line.separator");
+           }
+           cursor.close();
+           db.close();
+           return result;
+       }
 
         //we must use the ContentValues object with the put() method that is used to assign data to ContentsValues object
         //and then use insert() method of SQLiteDatabase object to insert data to the database
