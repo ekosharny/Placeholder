@@ -2,8 +2,13 @@ package com.example.placeholder;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.example.placeholder.Database.Details;
 
 public class drinks extends AppCompatActivity {
 
@@ -11,7 +16,7 @@ public class drinks extends AppCompatActivity {
 
      CheckBox cocacolab, pepsib, mountaindewb, spriteb, fantab;
      CheckBox applejb, cranberryjb, orangejb, lemonadeb, pineapplejb;
-     CheckBox greekyogurtb, wholemilkb, almondmilkb, soymilkb, coconutmilkb;
+     RadioButton greekyogurtb, wholemilkb, almondmilkb, soymilkb, coconutmilkb;
      CheckBox appleb, bananab, orangeb, strawberriesb, blueberriesb;
 
      String cocacola, pepsi, mountaindew, sprite, fanta;
@@ -47,8 +52,8 @@ public class drinks extends AppCompatActivity {
         strawberriesb = findViewById(R.id.strawberriesButton);
         blueberriesb = findViewById(R.id.blueberriesButton);
 
-        cocacola = findViewById(R.id.cocacolaButton).toString();
-        pepsi = findViewById(R.id.pepsiButton).toString();
+        cocacola = cocacolab.getText().toString();
+        pepsi = pepsib.getText().toString();
         mountaindew  = findViewById(R.id.mountaindewButton).toString();
         sprite  = findViewById(R.id.spriteButton).toString();
         fanta = findViewById(R.id.fantaButton).toString();
@@ -68,7 +73,95 @@ public class drinks extends AppCompatActivity {
         strawberries = findViewById(R.id.strawberriesButton).toString();
         blueberries = findViewById(R.id.blueberriesButton).toString();
 
-        addToCart = findViewById(R.id.addItemsButton);
+        addToCart = findViewById(R.id.addDrinksButton);
 
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cocacolab.isChecked()){
+                    Details details = new Details(1, cocacola, sodaprice );
+                    AddData(details);
+                }
+                if(pepsib.isChecked()){
+                    Details details = new Details(1, pepsi, sodaprice);
+                    AddData(details);
+                }
+                if(mountaindewb.isChecked()){
+                    Details details = new Details(1, mountaindew, sodaprice );
+                    AddData(details);
+                }
+                if(spriteb.isChecked()){
+                    Details details = new Details(1, sprite, sodaprice);
+                    AddData(details);
+                }
+                if(fantab.isChecked()){
+                    Details details = new Details(1, fanta, sodaprice );
+                    AddData(details);
+                }
+                if(applejb.isChecked()){
+                    Details details = new Details(1, applej, juiceprice);
+                    AddData(details);
+                }
+                if(cranberryjb.isChecked()){
+                    Details details = new Details(1, cranberryj, juiceprice );
+                    AddData(details);
+                }
+                if(orangejb.isChecked()){
+                    Details details = new Details(1, orangej, juiceprice);
+                    AddData(details);
+                }
+                if(lemonadeb.isChecked()){
+                    Details details = new Details(1, lemonade, juiceprice);
+                    AddData(details);
+                }
+                if(pineapplejb.isChecked()){
+                    Details details = new Details(1, pineapplej, juiceprice);
+                    AddData(details);
+                }
+
+                String smoothie="";
+
+                if(greekyogurtb.isChecked() || wholemilkb.isChecked() || almondmilkb.isChecked() || soymilkb.isChecked() || coconutmilkb.isChecked()) {
+                    if (greekyogurtb.isChecked()) {
+                        smoothie += (greekyogurt + ", ");
+                    } else if (wholemilkb.isChecked()) {
+                        smoothie += (wholemilk + ", ");
+                    } else if (almondmilkb.isChecked()) {
+                        smoothie += (almondmilk + ", ");
+                    } else if (soymilkb.isChecked()) {
+                        smoothie += (soymilk + ", ");
+                    } else if (coconutmilkb.isChecked()) {
+                        smoothie += (coconutmilk + ", ");
+                    }
+
+                    if(appleb.isChecked())
+                        smoothie+= (apple + ", ");
+                    if(bananab.isChecked())
+                        smoothie+= (banana + ", ");
+                    if(orangeb.isChecked())
+                        smoothie+= (orange + ", ");
+                    if(strawberriesb.isChecked())
+                        smoothie+= (strawberries + ", ");
+                    if(blueberriesb.isChecked())
+                        smoothie+= (blueberries + ", ");
+
+                    Details details = new Details(1, smoothie, smoothieprice);
+                    AddData(details);
+                }
+                else{
+                    if(appleb.isChecked() || bananab.isChecked() || orangeb.isChecked() || strawberriesb.isChecked() || blueberriesb.isChecked()){
+                        Toast.makeText(drinks.this, "Please add a base", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+
+    public void AddData(Details details) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addDetails(details);
     }
 }
