@@ -218,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return order;
         }
 
-
+        //FIND DETAILS
         public Details findDetails(int orderid) {
             String query = "Select * FROM " + TABLE_NAME3 + " WHERE " + COLUMN_ORDERID2 + " = " + "'" + orderid + "'";
             SQLiteDatabase db = this.getWritableDatabase();
@@ -243,18 +243,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        //We will save the result that is returned from the implementation of the rawQuery() method
        //of the SQLiteDatabase object into a Cursor object and find the matching result in this object.
        // In the final step, we use the delete() method of the SQLiteDatabase object to delete the record
-        public boolean deleteHandler(String name) {
+        public boolean deleteUser(String email) {
 
             boolean result = false;
-            String query = "Select*FROM " + TABLE_NAME1 + " WHERE " + COLUMN_NAME + "= '" + name + "'";
+            String query = "Select*FROM " + TABLE_NAME1 + " WHERE " + COLUMN_EMAIL + "= '" + email + "'";
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(query, null);
-            Customer customer = new Customer();
+            User user = new User();
             if (cursor.moveToFirst()) {
-                customer.setName(cursor.getString(1));
-                db.delete(TABLE_NAME1, COLUMN_NAME + "=?",
+                user.setEmail(cursor.getString(1));
+                db.delete(TABLE_NAME1, COLUMN_EMAIL + "=?",
                         new String[] {
-                    String.valueOf(customer.getName())
+                    String.valueOf(user.getEmail())
                 });
                 cursor.close();
                 result = true;
@@ -262,6 +262,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
             return result;
         }
+
+        public boolean deleteOrder(String uid) {
+
+            boolean result = false;
+            String query = "Select*FROM " + TABLE_NAME2 + " WHERE " + COLUMN_UID2 + "= '" + uid + "'";
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(query, null);
+            Order order = new Order();
+            if (cursor.moveToFirst()) {
+                order.setuID(cursor.getString(1));
+                db.delete(TABLE_NAME2, COLUMN_UID2 + "=?",
+                    new String[] {
+                            String.valueOf(order.getuID())
+                    });
+            cursor.close();
+            result = true;
+            }
+            db.close();
+            return result;
+        }
+
+        public boolean deleteDetails(int orderid) {
+
+            boolean result = false;
+            String query = "Select*FROM " + TABLE_NAME3 + " WHERE " + COLUMN_ORDERID2 + "= '" + orderid + "'";
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(query, null);
+            Details details = new Details();
+            if (cursor.moveToFirst()) {
+                details.set(cursor.getInt(0));
+                db.delete(TABLE_NAME3, COLUMN_ORDERID2 + "=?",
+                    new String[] {
+                            String.valueOf(details.get())
+                    });
+                cursor.close();
+                result = true;
+            }
+            db.close();
+            return result;
+        }
+
 
         //updates the information in a record
        //we can use the ContentValues object and the update() method of the SQLiteDatabase object
