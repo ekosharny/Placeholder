@@ -11,60 +11,40 @@ import android.database.sqlite.SQLiteOpenHelper;
         private static final String DATABASE_NAME = "Placeholder.db";
 
         /*
-        CUSTOMERS TABLE
+        USERS TABLE
         Fields:
-            CustomerID
-            Name        NOT NULL
+            UID         STRING
             Email       NOT NULL
-            Password    NOT NULL
-            PRIMARY KEY (CustomerID)
+            PRIMARY KEY (UID)
         */
-        private static final String TABLE_NAME1 = "Customers";
-        private static final String COLUMN_CUSTOMERID = "CustomerID";
-        private static final String COLUMN_NAME = "CustomerName";
-        private static final String COLUMN_EMAIL = "CustomerEmail";
-        private static final String COLUMN_PASSWORD = "CustomerPassword";
+        private static final String TABLE_NAME1 = "Users";
+        private static final String COLUMN_UID = "UID";
+        private static final String COLUMN_EMAIL = "UserEmail";
 
         /*
         ORDERS TABLE
         Fields:
             OrderID
-            CustomerID  NOT NULL
-            OrderDate   NOT NULL
+            UID         NOT NULL
             PRIMARY KEY (OrderID)
-            FOREIGN KEY (CustomerID)
+            FOREIGN KEY (UserID)
          */
         private static final String TABLE_NAME2 = "Orders";
         private static final String COLUMN_ORDERID = "OrderID";
-        private static final String COLUMN_ORDERDATE = "OrderDate";
+        private static final String COLUMN_UID2 = "UID";
 
         /*
         PRODUCTS TABLE
         Fields:
-            ProductCode NOT NULL
-            ProductName NOT NULL
-            ProductDesc          (A description of the product)
+            OrderID NOT NULL
+            ItemName NOT NULL
             Price       NOT NULL
-            PRIMARY KEY (ProductID)
+            FOREGIN KEY (OrderID)
          */
-        private static final String TABLE_NAME3 = "Products";
-        private static final String COLUMN_PRODUCTCODE = "ProductCode";
-        private static final String COLUMN_PRODUCTNAME = "ProductName";
-        private static final String COLUMN_PRODUCTDESC = "ProductDesc";
+        private static final String TABLE_NAME3 = "OrderDetails";
+        private static final String COLUMN_ORDERID2 = "OrderID";
+        private static final String COLUMN_ITEM = "ItemName";
         private static final String COLUMN_PRICE = "Price";
-
-        /*
-        ORDER DETAILS TABLE (contains product information for orders)
-        Fields:
-            OrderID     NOT NULL
-            ProductCode NOT NULL
-            Quantity    NOT NULL
-            PRIMARY KEY (OrderID, ProductCode) <- Composite Primary Key
-            FOREIGN KEY (OrderID) references Orders (OrderID)
-            FOREIGN KEY (ProductCode) references Products (ProductCode)
-         */
-        private static final String TABLE_NAME4 = "\"Order Details\"";
-        private static final String COLUMN_QUANTITY = "Quantity";
 
 
         //initialize the database
@@ -75,29 +55,20 @@ import android.database.sqlite.SQLiteOpenHelper;
         public void onCreate(SQLiteDatabase db) {
 
             //creates CUSTOMERS table
-            String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_CUSTOMERID +
-                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT, " + COLUMN_EMAIL + " VARCHAR, " +
-                    COLUMN_PASSWORD + " VARCHAR);";
+            String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_UID +
+                    " VARCHAR PRIMARY KEY, " + COLUMN_EMAIL + " VARCHAR);";
             db.execSQL(CREATE_TABLE1);
 
             //creates ORDERS table
             String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
-                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_CUSTOMERID + " INTEGER, " +
-                    COLUMN_ORDERDATE + " TEXT," + " FOREIGN KEY (CustomerID) REFERENCES Orders (CustomerID));";
+                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
             db.execSQL(CREATE_TABLE2);
 
-            //creates PRODUCTS table
-            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_PRODUCTCODE +
-                    " INTEGER PRIMARY KEY, " + COLUMN_PRODUCTNAME + " VARCHAR, " + COLUMN_PRODUCTDESC +
-                    " VARCHAR, " + COLUMN_PRICE + " INTEGER);";
+            //creates ORDERDETAILS table
+            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_ORDERID2 +
+                    " INTEGER NOT NULL, " + COLUMN_ITEM + " VARCHAR NOT NULL, " + COLUMN_PRICE + " INTEGER, PRIMARY KEY(OrderID, ItemName));";
             db.execSQL(CREATE_TABLE3);
 
-            //creates ORDER DETAILS table
-            String CREATE_TABLE4 = "CREATE TABLE " + TABLE_NAME4 + " (" + COLUMN_ORDERID + " INTEGER NOT NULL, "
-                    + COLUMN_PRODUCTCODE + " INTEGER NOT NULL, " + COLUMN_PRODUCTNAME + " VARCHAR, " +
-                    COLUMN_PRODUCTDESC + " VARCHAR, " + COLUMN_QUANTITY + " INTEGER, PRIMARY KEY (OrderID, ProductCode), " +
-                    "FOREIGN KEY (OrderID) REFERENCES Orders, FOREIGN KEY (ProductCode) REFERENCES Products);";
-            db.execSQL(CREATE_TABLE4);
         }
 
         //Called when the database needs to be upgraded.
@@ -108,14 +79,13 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME3);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME4);
             onCreate(db);
         }
 
 
         //loads the entire table so you can display it
        //We use the rawQuery() method of a SQLiteDatabase object to implement SQL statement and display result via a Cursor object
-        public String loadHandler() {
+        public String loadUsers() {
 
             String result = "";
             String query = "Select*FROM " + TABLE_NAME1;
