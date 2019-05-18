@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            //creates CUSTOMERS table
+            //creates USER table
             String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_UID +
                     " VARCHAR PRIMARY KEY, " + COLUMN_EMAIL + " VARCHAR);";
             db.execSQL(CREATE_TABLE1);

@@ -31,15 +31,16 @@ public class accountfrag extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
 
-
         //logout button redirects back to main page
         logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(accountfrag.this, SignIn.class));
+                finish();
             }
         });
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -56,8 +57,6 @@ public class accountfrag extends AppCompatActivity {
         }
 
         email.setText(demail);
-
-
 
     }
 }
