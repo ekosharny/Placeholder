@@ -54,24 +54,24 @@ public class drinks extends AppCompatActivity {
 
         cocacola = cocacolab.getText().toString();
         pepsi = pepsib.getText().toString();
-        mountaindew  = findViewById(R.id.mountaindewButton).toString();
-        sprite  = findViewById(R.id.spriteButton).toString();
-        fanta = findViewById(R.id.fantaButton).toString();
-        applej  = findViewById(R.id.applejButton).toString();
-        cranberryj = findViewById(R.id.cranberryjButton).toString();
-        orangej = findViewById(R.id.orangejButton).toString();
-        lemonade = findViewById(R.id.lemonadeButton).toString();
-        pineapplej = findViewById(R.id.pineapplejButton).toString();
-        greekyogurt = findViewById(R.id.greekyogurtButton).toString();
-        wholemilk = findViewById(R.id.wholemilkButton).toString();
-        almondmilk = findViewById(R.id.almondMilkButton).toString();
-        soymilk = findViewById(R.id.soymilkButton).toString();
-        coconutmilk = findViewById(R.id.coconutmilkButton).toString();
-        apple = findViewById(R.id.appleButton).toString();
-        banana = findViewById(R.id.bananaButton).toString();
-        orange = findViewById(R.id.orangeButton).toString();
-        strawberries = findViewById(R.id.strawberriesButton).toString();
-        blueberries = findViewById(R.id.blueberriesButton).toString();
+        mountaindew  = mountaindewb.getText().toString();
+        sprite  = spriteb.getText().toString();
+        fanta = fantab.getText().toString();
+        applej  = applejb.getText().toString();
+        cranberryj = cranberryjb.getText().toString();
+        orangej = orangejb.getText().toString();
+        lemonade = lemonadeb.getText().toString();
+        pineapplej = pineapplejb.getText().toString();
+        greekyogurt = greekyogurtb.getText().toString();
+        wholemilk = wholemilkb.getText().toString();
+        almondmilk = almondmilkb.getText().toString();
+        soymilk = soymilkb.getText().toString();
+        coconutmilk = coconutmilkb.getText().toString();
+        apple = appleb.getText().toString();
+        banana = bananab.getText().toString();
+        orange = orangeb.getText().toString();
+        strawberries = strawberriesb.getText().toString();
+        blueberries = blueberriesb.getText().toString();
 
         addToCart = findViewById(R.id.addDrinksButton);
 

@@ -43,20 +43,20 @@ public class sides extends AppCompatActivity {
         chickennoodleb = findViewById(R.id.chickennoodleButton);
 
         //SIDE STRINGS
-        potatochips = findViewById(R.id.potatochipsButton).toString();
-        sourcreamchips = findViewById(R.id.sourcreamButton).toString();
-        cheddarchips  = findViewById(R.id.cheddarButton).toString();
-        bbqchips  = findViewById(R.id.bbqButton).toString();
-        popcorn = findViewById(R.id.popcornButton).toString();
-        whitebread  = findViewById(R.id.whitebreadButton).toString();
-        wholewheat = findViewById(R.id.wholewheatButton).toString();
-        wholegrain = findViewById(R.id.wholegrainButton).toString();
-        sourdough = findViewById(R.id.sourdoughButton).toString();
-        pita = findViewById(R.id.pitaButton).toString();
-        frenchonion = findViewById(R.id.frenchonionButton).toString();
-        clamchowder = findViewById(R.id.clamchowderButton).toString();
-        veggiesoup = findViewById(R.id.veggieButton).toString();
-        chickennoodle = findViewById(R.id.chickennoodleButton).toString();
+        potatochips = potatochipsb.getText().toString();
+        sourcreamchips = sourcreamchipsb.getText().toString();
+        cheddarchips  = cheddarchipsb.getText().toString();
+        bbqchips  = bbqchipsb.getText().toString();
+        popcorn = popcornb.getText().toString();
+        whitebread  = whitebreadb.getText().toString();
+        wholewheat = wholewheatb.getText().toString();
+        wholegrain = wholegrainb.getText().toString();
+        sourdough = sourdoughb.getText().toString();
+        pita = pitab.getText().toString();
+        frenchonion = frenchonionb.getText().toString();
+        clamchowder = clamchowderb.getText().toString();
+        veggiesoup = veggiesoupb.getText().toString();
+        chickennoodle = chickennoodleb.getText().toString();
 
         addToCart = findViewById(R.id.addSidesButton);
 

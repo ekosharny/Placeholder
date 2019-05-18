@@ -22,6 +22,7 @@ public class SignIn extends AppCompatActivity {
     Button login, click;
     EditText email, password;
     DatabaseHelper dhelper;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -45,7 +46,6 @@ public class SignIn extends AppCompatActivity {
                 String addEmail = email.getText().toString();
                 String addPassword = password.getText().toString();
                 signIn(addEmail, addPassword);
-
 
             }
         });
