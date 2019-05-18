@@ -92,16 +92,4 @@ public class SignIn extends AppCompatActivity {
                 });
     }
 
-    //method used to find the user record based on the username input
-    public Customer findUser(View v){
-
-        //creates a new customer and uses findHandler method in DatabaseHelper to find user
-        Customer customer =  dhelper.findHandler(email.getText().toString());
-        //returns the customer found in database if not null
-        if(customer!=null){
-            return customer;
-        }
-        else
-            return null;
-    }
 }
