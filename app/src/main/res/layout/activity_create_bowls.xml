@@ -267,7 +267,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/addtocartButton"
+            android:id="@+id/addCreateBowl"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="231dp"
             android:layout_height="wrap_content"

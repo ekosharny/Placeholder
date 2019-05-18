@@ -103,4 +103,6 @@ public class CreateBowls extends AppCompatActivity {
         spicyMayo=(findViewById(R.id.spicyMayoBox)).toString();
         sriracha=(findViewById(R.id.srirachaBox)).toString();
     }
+
+
 }

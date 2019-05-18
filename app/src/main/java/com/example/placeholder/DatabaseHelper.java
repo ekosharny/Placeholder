@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             //creates ORDERS table
             String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
-                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
+                    " INTEGER PRIMARY KEY, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
             db.execSQL(CREATE_TABLE2);
 
             //creates ORDERDETAILS table
