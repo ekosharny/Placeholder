@@ -43,20 +43,20 @@ public class sides extends AppCompatActivity {
         chickennoodleb = findViewById(R.id.chickennoodleButton);
 
         //SIDE STRINGS
-        potatochips = potatochipsb.getText().toString();
-        sourcreamchips = sourcreamchipsb.getText().toString();
-        cheddarchips  = cheddarchipsb.getText().toString();
-        bbqchips  = bbqchipsb.getText().toString();
-        popcorn = popcornb.getText().toString();
-        whitebread  = whitebreadb.getText().toString();
-        wholewheat = wholewheatb.getText().toString();
-        wholegrain = wholegrainb.getText().toString();
-        sourdough = sourdoughb.getText().toString();
-        pita = pitab.getText().toString();
-        frenchonion = frenchonionb.getText().toString();
-        clamchowder = clamchowderb.getText().toString();
-        veggiesoup = veggiesoupb.getText().toString();
-        chickennoodle = chickennoodleb.getText().toString();
+        potatochips = "Potato Chips";
+        sourcreamchips = "Sour Cream & Onion chips";
+        cheddarchips  = "Cheddar Chips";
+        bbqchips  = "BBQ Chips";
+        popcorn = "Popcorn";
+        whitebread  = "White Bread";
+        wholewheat = "Whole Wheat Bread";
+        wholegrain = "Whole Grain Bread";
+        sourdough = "Sourdough Bread";
+        pita = "Pita";
+        frenchonion = "French Onion Soup";
+        clamchowder = "Clam Chowder Soup";
+        veggiesoup = "Veggie Soup";
+        chickennoodle = "Chicken Noodle Soup";
 
         addToCart = findViewById(R.id.addSidesButton);
 
