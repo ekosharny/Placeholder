@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.placeholder.Database.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -55,19 +56,26 @@ public class SignUp extends AppCompatActivity {
                     Toast.makeText(SignUp.this, "Passwords don't match.",
                             Toast.LENGTH_SHORT).show();
 
-
             }
         });
 
 
     }
 
-    public void createAccount(String email, String password){
-        mAuth.createUserWithEmailAndPassword(email, password)
+    public void createAccount(String newemail, String newpassword){
+        mAuth.createUserWithEmailAndPassword(newemail, newpassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            String uid= user.getUid();
+                            String email = user.getEmail();
+                            User newuser = new User(uid, email);
+                            AddData(newuser);
+
                             startActivity(new Intent(SignUp.this, MainActivity.class));
                             finish();
 
@@ -79,6 +87,13 @@ public class SignUp extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    public void AddData(User user) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addUser(user);
     }
 
 

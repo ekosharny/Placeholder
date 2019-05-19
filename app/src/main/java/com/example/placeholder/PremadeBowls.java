@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import com.example.placeholder.Database.Details;
 
 public class PremadeBowls extends AppCompatActivity {
 
@@ -31,12 +33,12 @@ public class PremadeBowls extends AppCompatActivity {
         farmerb=findViewById(R.id.addFarmer);
 
         //STRINGS
-        cali=findViewById(R.id.caliBowl).toString();
-        tritri=findViewById(R.id.tritriBowl).toString();
-        macfergus=findViewById(R.id.macfergusBowl).toString();
-        hawaiian=findViewById(R.id.hawaiianBowl).toString();
-        vegeterian =findViewById(R.id.vegetarianBowl).toString();
-        farmer=findViewById(R.id.farmerBowl).toString();
+        cali="Cali Bowl";
+        tritri="TriTri Bowl";
+        macfergus="MacFergus Bowl";
+        hawaiian="Hawaiian Bowl";
+        vegeterian = "Vegeterian Bowl";
+        farmer= "Farmer Bowl";
 
         create= findViewById(R.id.createOwnBowlButton);
 
@@ -46,6 +48,50 @@ public class PremadeBowls extends AppCompatActivity {
             }
         });
 
+        calib.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, cali, caliprice);
+                AddData(details);
+            }
+        });
 
+        tritrib.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, tritri, tritriprice);
+                AddData(details);
+            }
+        });
+        macfergusb.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, macfergus, macfergusprice);
+                AddData(details);
+            }
+        });
+        hawaiianb.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, hawaiian, hawaiianprice);
+                AddData(details);
+            }
+        });
+        vegeterianb.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, vegeterian, vegetarianprice);
+                AddData(details);
+            }
+        });
+        farmerb.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                Details details = new Details(1, farmer, farmerprice);
+                AddData(details);
+            }
+        });
+
+    }
+
+    public void AddData(Details details) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addDetails(details);
     }
 }

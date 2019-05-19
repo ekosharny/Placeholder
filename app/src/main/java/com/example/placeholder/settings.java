@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,9 +16,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class settings extends AppCompatActivity {
 
     //creates variables for buttons/text-edit
-    Button delete, save;
+    Button delete, save, logout;
     EditText changeUsername, changePassword, changePassword2;
     FirebaseUser user;
+    TextView email,viewUsersDB, viewDetailsDB;
+    String demail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,21 @@ public class settings extends AppCompatActivity {
         changeUsername = findViewById(R.id.changeusername);
         changePassword = findViewById(R.id.changepassword);
         changePassword2 = findViewById(R.id.changepassword2);
+        logout = findViewById(R.id.logout);
+        email = findViewById(R.id.emailBox);
+        //viewUsersDB = findViewById(R.id.viewUsersBox);
+        viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+            demail = user.getEmail();
+            String uid = user.getUid();
+        }
+
+        email.setText("   " + demail);
+
 
         //delete button action
         delete.setOnClickListener(new OnClickListener(){
@@ -72,6 +88,43 @@ public class settings extends AppCompatActivity {
             }
         });
 
+        //logout button redirects back to main page
+        logout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(settings.this, SignIn.class));
+                finish();
+            }
+        });
+
+        /*
+        viewUsersDB.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showUsers(view);
+            }
+        });
+        */
+
+        viewDetailsDB.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDetails(view);
+            }
+        });
+
+    }
+
+
+    public void showUsers(View view) {
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        viewUsersDB.setText(dbHandler.loadUsers());
+    }
+
+    public void showDetails(View view){
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        viewDetailsDB.setText(dbHandler.loadDetails());
     }
 
 }

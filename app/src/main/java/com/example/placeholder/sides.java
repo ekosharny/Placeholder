@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.example.placeholder.Database.Details;
+
 public class sides extends AppCompatActivity {
 
     Button addToCart;
@@ -41,23 +43,85 @@ public class sides extends AppCompatActivity {
         chickennoodleb = findViewById(R.id.chickennoodleButton);
 
         //SIDE STRINGS
-        potatochips = findViewById(R.id.potatochipsButton).toString();
-        sourcreamchips = findViewById(R.id.sourcreamButton).toString();
-        cheddarchips  = findViewById(R.id.cheddarButton).toString();
-        bbqchips  = findViewById(R.id.bbqButton).toString();
-        popcorn = findViewById(R.id.popcornButton).toString();
-        whitebread  = findViewById(R.id.whitebreadButton).toString();
-        wholewheat = findViewById(R.id.wholewheatButton).toString();
-        wholegrain = findViewById(R.id.wholegrainButton).toString();
-        sourdough = findViewById(R.id.sourdoughButton).toString();
-        pita = findViewById(R.id.pitaButton).toString();
-        frenchonion = findViewById(R.id.frenchonionButton).toString();
-        clamchowder = findViewById(R.id.clamchowderButton).toString();
-        veggiesoup = findViewById(R.id.veggieButton).toString();
-        chickennoodle = findViewById(R.id.chickennoodleButton).toString();
+        potatochips = potatochipsb.getText().toString();
+        sourcreamchips = sourcreamchipsb.getText().toString();
+        cheddarchips  = cheddarchipsb.getText().toString();
+        bbqchips  = bbqchipsb.getText().toString();
+        popcorn = popcornb.getText().toString();
+        whitebread  = whitebreadb.getText().toString();
+        wholewheat = wholewheatb.getText().toString();
+        wholegrain = wholegrainb.getText().toString();
+        sourdough = sourdoughb.getText().toString();
+        pita = pitab.getText().toString();
+        frenchonion = frenchonionb.getText().toString();
+        clamchowder = clamchowderb.getText().toString();
+        veggiesoup = veggiesoupb.getText().toString();
+        chickennoodle = chickennoodleb.getText().toString();
 
-        addToCart = findViewById(R.id.addItemsButton);
+        addToCart = findViewById(R.id.addSidesButton);
 
+        if(potatochipsb.isChecked()){
+            Details details = new Details(1, potatochips, chipsprice);
+            AddData(details);
+        }
+        if(sourcreamchipsb.isChecked()){
+            Details details = new Details(1, sourcreamchips, chipsprice );
+            AddData(details);
+        }
+        if(cheddarchipsb.isChecked()){
+            Details details = new Details(1, cheddarchips, chipsprice );
+            AddData(details);
+        }
+        if(bbqchipsb.isChecked()){
+            Details details = new Details(1, bbqchips, chipsprice);
+            AddData(details);
+        }
+        if(popcornb.isChecked()){
+            Details details = new Details(1, popcorn, chipsprice );
+            AddData(details);
+        }
+        if(whitebreadb.isChecked()){
+            Details details = new Details(1, whitebread, breadprice);
+            AddData(details);
+        }
+        if(wholewheatb.isChecked()){
+            Details details = new Details(1, wholewheat, breadprice);
+            AddData(details);
+        }
+        if(wholegrainb.isChecked()){
+            Details details = new Details(1, wholegrain, breadprice);
+            AddData(details);
+        }
+        if(sourdoughb.isChecked()){
+            Details details = new Details(1, sourdough, breadprice);
+            AddData(details);
+        }
+        if(pitab.isChecked()){
+            Details details = new Details(1, pita, breadprice);
+            AddData(details);
+        }
+        if(frenchonionb.isChecked()){
+            Details details = new Details(1, frenchonion, soupprice);
+            AddData(details);
+        }
+        if(clamchowderb.isChecked()){
+            Details details = new Details(1, clamchowder, soupprice );
+            AddData(details);
+        }
+        if(veggiesoupb.isChecked()){
+            Details details = new Details(1,veggiesoup, soupprice);
+            AddData(details);
+        }
+        if(chickennoodleb.isChecked()){
+            Details details = new Details(1, chickennoodle, soupprice);
+            AddData(details);
+        }
+    }
 
+    public void AddData(Details details) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addDetails(details);
     }
 }

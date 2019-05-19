@@ -58,14 +58,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            //creates CUSTOMERS table
+            //creates USER table
             String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " (" + COLUMN_UID +
                     " VARCHAR PRIMARY KEY, " + COLUMN_EMAIL + " VARCHAR);";
             db.execSQL(CREATE_TABLE1);
 
             //creates ORDERS table
             String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
-                    " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
+                    " INTEGER PRIMARY KEY, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
             db.execSQL(CREATE_TABLE2);
 
             //creates ORDERDETAILS table

@@ -22,6 +22,7 @@ public class SignIn extends AppCompatActivity {
     Button login, click;
     EditText email, password;
     DatabaseHelper dhelper;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -46,7 +47,6 @@ public class SignIn extends AppCompatActivity {
                 String addPassword = password.getText().toString();
                 signIn(addEmail, addPassword);
 
-
             }
         });
 
@@ -64,12 +64,6 @@ public class SignIn extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            startActivity(new Intent(SignIn.this, MainActivity.class));
-            finish();
-        }
     }
 
     public void signIn(String email, String password){

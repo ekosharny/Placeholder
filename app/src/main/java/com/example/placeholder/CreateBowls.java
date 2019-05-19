@@ -2,12 +2,18 @@ package com.example.placeholder;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.example.placeholder.Database.Details;
 
 public class CreateBowls extends AppCompatActivity {
 
-    CheckBox whiteRiceb, brownRiceb, mashedPotatob, quinoab, mixedGreensb;
-    CheckBox chickenb, spicyTunab, shrimpb, tofub, beefb, salmonb;
+    RadioButton whiteRiceb, brownRiceb, mashedPotatob, quinoab, mixedGreensb;
+    RadioButton chickenb, spicyTunab, shrimpb, tofub, beefb, salmonb;
     CheckBox onionsb, cabbageb, cherryTomatoesb, cucumberb, dicedTomatoesb, jalapenosb, carrotsb, peppersb;
     CheckBox avocadob, pineappleb, edamameb, sesameSeedsb, masagob;
     CheckBox soyb, duckb, ranchb, spicyMayob, srirachab;
@@ -20,6 +26,8 @@ public class CreateBowls extends AppCompatActivity {
 
     final double bowlprice=12.00;
 
+    Button add;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,7 @@ public class CreateBowls extends AppCompatActivity {
         mashedPotatob = findViewById(R.id.mashedPotatoBox);
         quinoab = findViewById(R.id.quinoaBox);
         mixedGreensb = findViewById(R.id.mixedGreensBox);
+
 
         //PROTEIN BUTTONS
         chickenb = findViewById(R.id.chickenBox);
@@ -65,42 +74,161 @@ public class CreateBowls extends AppCompatActivity {
         srirachab=findViewById(R.id.srirachaBox);
 
         //BASE STRINGS
-        whiteRice = findViewById(R.id.whiteRiceBox).toString();
-        brownRice = findViewById(R.id.brownRiceBox).toString();
-        mashedPotato = findViewById(R.id.mashedPotatoBox).toString();
-        quinoa = findViewById(R.id.quinoaBox).toString();
-        mixedGreens = findViewById(R.id.mixedGreensBox).toString();
+        whiteRice = "White Rice";
+        brownRice = "Brown Rice";
+        mashedPotato = "Mashed Potato";
+        quinoa = "Quinoa";
+        mixedGreens = "Mixed Greens";
 
         //PROTEIN STRINGS
-        chicken = findViewById(R.id.chickenBox).toString();
-        spicyTuna = (findViewById(R.id.spicyTunaBox)).toString();
-        shrimp=(findViewById(R.id.shrimpBox)).toString();
-        tofu=(findViewById(R.id.tofuBox)).toString();
-        beef=(findViewById(R.id.beefBox)).toString();
-        salmon=(findViewById(R.id.salmonBox)).toString();
+        chicken = "Chicken";
+        spicyTuna = "Spicy Tuna";
+        shrimp="Shrimp";
+        tofu="Tofu";
+        beef="Beef";
+        salmon="Salmon";
 
         //VEGGIES STRINGS
-        onions =(findViewById(R.id.onionsBox)).toString();
-        cabbage=(findViewById(R.id.cabbageBox)).toString();
-        cherryTomatoes=(findViewById(R.id.cherryTomatoBox)).toString();
-        cucumber=(findViewById(R.id.cucumberBox)).toString();
-        dicedTomatoes=(findViewById(R.id.dicedTomatoBox)).toString();
-        jalapenos=(findViewById(R.id.jalapenosBox)).toString();
-        carrots =(findViewById(R.id.carrotsBox)).toString();
-        peppers=(findViewById(R.id.peppersBox)).toString();
+        onions ="Onions";
+        cabbage="Cabbage";
+        cherryTomatoes="Cherry Tomatoes";
+        cucumber="Cucumber";
+        dicedTomatoes="Diced Tomatoes";
+        jalapenos="Jalapenos";
+        carrots ="Carrots";
+        peppers="Peppers";
 
         //TOPPINGS STRINGS
-        avocado=(findViewById(R.id.avocadoBox)).toString();
-        pineapple=(findViewById(R.id.pineappleBox)).toString();
-        edamame=(findViewById(R.id.edamameBox)).toString();
-        sesameSeeds=(findViewById(R.id.sesameBox)).toString();
-        masago=(findViewById(R.id.masagoBox)).toString();
+        avocado="Avocado";
+        pineapple="Pineapple";
+        edamame="Edamame";
+        sesameSeeds="Sesame Seeds";
+        masago="Masago";
 
         //DRESSING STRINGS
-        soy=(findViewById(R.id.soyBox)).toString();
-        duck=(findViewById(R.id.duckBox)).toString();
-        ranch=(findViewById(R.id.ranchBox)).toString();
-        spicyMayo=(findViewById(R.id.spicyMayoBox)).toString();
-        sriracha=(findViewById(R.id.srirachaBox)).toString();
+        soy="Soy Sauce";
+        duck="Duck Sauce";
+        ranch="Ranch";
+        spicyMayo="Spicy Mayo";
+        sriracha="Sriracha";
+
+
+        add=findViewById(R.id.addCreateBowl);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String custombowl="";
+
+                if(whiteRiceb.isChecked() || brownRiceb.isChecked() || mashedPotatob.isChecked() || quinoab.isChecked() || mixedGreensb.isChecked()) {
+                    if (whiteRiceb.isChecked()) {
+                        custombowl += (whiteRice + ", ");
+                    } else if (brownRiceb.isChecked()) {
+                        custombowl += (brownRice + ", ");
+                    } else if (mashedPotatob.isChecked()) {
+                        custombowl += (mashedPotato + ", ");
+                    } else if (quinoab.isChecked()) {
+                        custombowl += (quinoa + ", ");
+                    } else if (mixedGreensb.isChecked()) {
+                        custombowl += (mixedGreens + ", ");
+                    }
+                }
+                else
+                    Toast.makeText(CreateBowls.this, "Please add a base", Toast.LENGTH_SHORT).show();
+
+                if(chickenb.isChecked() || spicyTunab.isChecked() || shrimpb.isChecked() || tofub.isChecked() || beefb.isChecked() || salmonb.isChecked()) {
+                    if (chickenb.isChecked()) {
+                        custombowl += (chicken + ", ");
+                    } else if (spicyTunab.isChecked()) {
+                        custombowl += (spicyTuna + ", ");
+                    } else if (shrimpb.isChecked()) {
+                        custombowl += (shrimp + ", ");
+                    } else if (tofub.isChecked()) {
+                        custombowl += (tofu + ", ");
+                    } else if (beefb.isChecked()) {
+                        custombowl += (beef + ", ");
+                    } else if (salmonb.isChecked()) {
+                        custombowl += (salmon + ", ");
+                    }
+                }
+                else
+                    Toast.makeText(CreateBowls.this, "Please add a protein", Toast.LENGTH_SHORT).show();
+
+
+                //VEGGIES
+                if(onionsb.isChecked()){
+                    custombowl += (onions = ", ");
+                }
+                if(cabbageb.isChecked()){
+                    custombowl += (cabbage = ", ");
+                }
+                if(cherryTomatoesb.isChecked()){
+                    custombowl += (cherryTomatoes = ", ");
+                }
+                if(cucumberb.isChecked()){
+                    custombowl += (cucumber = ", ");
+                }
+                if(dicedTomatoesb.isChecked()){
+                    custombowl += (dicedTomatoes = ", ");
+                }
+                if(jalapenosb.isChecked()) {
+                    custombowl += (jalapenos = ", ");
+                }
+                if(carrotsb.isChecked()){
+                    custombowl += (carrots = ", ");
+                }
+                if(peppersb.isChecked()){
+                    custombowl += (peppers = ", ");
+                }
+
+
+                //TOPPINGS
+                if(avocadob.isChecked()){
+                    custombowl += (avocado = ", ");
+                }
+                if(pineappleb.isChecked()){
+                    custombowl += (pineapple = ", ");
+                }
+                if(edamameb.isChecked()){
+                    custombowl += (edamame = ", ");
+                }
+                if(sesameSeedsb.isChecked()){
+                    custombowl += (sesameSeeds = ", ");
+                }
+                if(masagob.isChecked()){
+                    custombowl += (masago = ", ");
+                }
+
+
+                //SAUCE
+                if(soyb.isChecked()){
+                    custombowl += (soy = ".");
+                }
+                if(duckb.isChecked()){
+                    custombowl += (duck = ".");
+                }
+                if(ranchb.isChecked()){
+                    custombowl += (ranch = ".");
+                }
+                if(spicyMayob.isChecked()){
+                    custombowl += (spicyMayo = ".");
+                }
+                if(srirachab.isChecked()){
+                    custombowl += (sriracha = ".");
+                }
+
+                Details details = new Details(1, custombowl, bowlprice);
+                AddData(details);
+            }
+        });
     }
+
+    public void AddData(Details details) {
+
+        //creates new databasehelper and calls addHandler which adds the customer to the database
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        dbHandler.addDetails(details);
+    }
+
 }

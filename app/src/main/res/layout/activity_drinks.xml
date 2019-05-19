@@ -21,7 +21,7 @@
         android:id="@+id/sodaTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Soda                                           $2.00"
+        android:text="Soda                                          $2.00"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -90,7 +90,7 @@
         android:id="@+id/JuiceTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Juice                                          $3.00"
+        android:text="Juice                                         $3.00"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -159,7 +159,7 @@
         android:id="@+id/fruitsmoothieTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Fruit Smoothie                        $5.50"
+        android:text="Fruit Smoothie                       $5.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -177,109 +177,106 @@
                 android:id="@+id/baseTV"
                 android:layout_width="204dp"
                 android:layout_height="match_parent"
-                android:text="BASE (limit 1):"
+                android:text="BASE:"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/fruitsTV"
                 android:layout_width="204dp"
                 android:layout_height="match_parent"
-                android:text="FRUITS (limit 3):"
+                android:text="FRUITS:"
                 android:textSize="18sp" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </TableLayout>
 
-            <CheckBox
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="205dp"
+            android:layout_height="match_parent" >
+
+            <RadioButton
                 android:id="@+id/greekyogurtButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Greek Yogurt" />
 
-            <CheckBox
-                android:id="@+id/appleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apple" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
+            <RadioButton
                 android:id="@+id/wholemilkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Whole Milk" />
 
-            <CheckBox
-                android:id="@+id/bananaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Banana" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
+            <RadioButton
                 android:id="@+id/almondMilkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Almond Milk" />
 
-            <CheckBox
-                android:id="@+id/orangeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Orange" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
+            <RadioButton
                 android:id="@+id/soymilkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Soy Milk" />
 
-            <CheckBox
-                android:id="@+id/strawberriesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Strawberries" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
+            <RadioButton
                 android:id="@+id/coconutmilkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Coconut Milk" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/appleButton"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Apple" />
+
+            <CheckBox
+                android:id="@+id/bananaButton"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Banana" />
+
+            <CheckBox
+                android:id="@+id/orangeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orange" />
+
+            <CheckBox
+                android:id="@+id/strawberriesButton"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Strawberries" />
 
             <CheckBox
                 android:id="@+id/blueberriesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
                 android:text="Blueberries" />
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/addItemsButton"
+        android:id="@+id/addDrinksButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="86dp"
         android:text="Add Item(s)"
         android:textSize="18sp"
         android:textStyle="bold" />
