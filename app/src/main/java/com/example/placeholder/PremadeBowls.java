@@ -3,6 +3,7 @@ package com.example.placeholder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,6 +25,12 @@ public class PremadeBowls extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_premade_bowls);
 
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         //BUTTONS
         calib=findViewById(R.id.addCali);
         tritrib=findViewById(R.id.addTriTri);
@@ -93,5 +100,10 @@ public class PremadeBowls extends AppCompatActivity {
         //creates new databasehelper and calls addHandler which adds the customer to the database
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         dbHandler.addDetails(details);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

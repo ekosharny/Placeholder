@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".settings">
 
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
     <TextView
         android:id="@+id/space"
         android:layout_width="match_parent"

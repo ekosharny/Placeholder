@@ -1,9 +1,13 @@
 package com.example.placeholder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.placeholder.Database.Details;
 
@@ -21,11 +25,18 @@ public class sides extends AppCompatActivity {
 
     final double chipsprice=2.00, breadprice=1.50, soupprice=4.50;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sides);
 
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         //SIDES BUTTONS
         potatochipsb = findViewById(R.id.potatochipsButton);
         sourcreamchipsb = findViewById(R.id.sourcreamButton);
@@ -124,4 +135,10 @@ public class sides extends AppCompatActivity {
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         dbHandler.addDetails(details);
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

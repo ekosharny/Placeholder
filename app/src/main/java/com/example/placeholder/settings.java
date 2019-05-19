@@ -3,6 +3,7 @@ package com.example.placeholder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -27,6 +28,12 @@ public class settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         //links variable to id in layout
         delete = findViewById(R.id.deletebutton);
         save = findViewById(R.id.saveButton);
@@ -125,6 +132,11 @@ public class settings extends AppCompatActivity {
     public void showDetails(View view){
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         viewDetailsDB.setText(dbHandler.loadDetails());
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
