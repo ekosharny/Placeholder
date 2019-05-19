@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_menu:
                     mTextMessage.setText("Menu");
                     return true;
-                case R.id.navigation_featured:
-                    mTextMessage.setText("Featured");
+                case R.id.navigation_previous:
+                    mTextMessage.setText("Your Orders");
                     return true;
                 case R.id.navigation_cart:
                     mTextMessage.setText("Cart");
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.navigation_menu:
                                 selectedFragment=new menufrag();
                                 break;
-                            case R.id.navigation_featured:
+                            case R.id.navigation_previous:
                                 selectedFragment= new ordersfrag();
                                 break;
                             case R.id.navigation_cart:

@@ -8,10 +8,14 @@
     android:orientation="vertical"
     tools:context=".sides">
 
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/drinksTV"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="56dp"
         android:text="               Drinks"
         android:textColor="@color/colorAccent"
         android:textSize="36sp"
@@ -276,7 +280,7 @@
         android:id="@+id/addDrinksButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="match_parent"
         android:text="Add Item(s)"
         android:textSize="18sp"
         android:textStyle="bold" />

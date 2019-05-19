@@ -2,6 +2,7 @@ package com.example.placeholder;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -33,6 +34,12 @@ public class CreateBowls extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_bowls);
 
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         //BASE BUTTONS
         whiteRiceb = findViewById(R.id.whiteRiceBox);
         brownRiceb = findViewById(R.id.brownRiceBox);
@@ -230,5 +237,9 @@ public class CreateBowls extends AppCompatActivity {
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         dbHandler.addDetails(details);
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

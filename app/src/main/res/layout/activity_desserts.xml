@@ -8,10 +8,14 @@
     android:orientation="vertical"
     tools:context=".sides">
 
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/dessertsTV"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="46dp"
         android:text="                  Desserts"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"

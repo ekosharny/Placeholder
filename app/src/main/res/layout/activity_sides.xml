@@ -7,11 +7,14 @@
     android:background="@drawable/background3"
     android:orientation="vertical"
     tools:context=".sides">
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/sidesTV"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="50dp"
         android:text="                    Sides"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"

@@ -2,6 +2,7 @@ package com.example.placeholder;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,6 +28,12 @@ public class desserts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desserts);
 
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         redvelvetcakeb = findViewById(R.id.redvelvetcakeButton);
         chocolatecakeb = findViewById(R.id.chocolatecakeButton);
         strawberrycakeb  = findViewById(R.id.strawberryswirlButton);
@@ -123,5 +130,10 @@ public class desserts extends AppCompatActivity {
         //creates new databasehelper and calls addHandler which adds the customer to the database
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         dbHandler.addDetails(details);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
