@@ -20,6 +20,7 @@ public class settings extends AppCompatActivity {
     Button delete, save, logout;
     EditText changeUsername, changePassword, changePassword2;
     FirebaseUser user;
+    FirebaseAuth mAuth;
     TextView email,viewUsersDB, viewDetailsDB;
     String demail;
 
@@ -45,7 +46,8 @@ public class settings extends AppCompatActivity {
         viewUsersDB = findViewById(R.id.viewUsersDB);
         viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
 
         if (user != null) {
 
@@ -61,6 +63,7 @@ public class settings extends AppCompatActivity {
             public void onClick(View v){
                 if(user!=null) {
 
+                    mAuth.signOut();
                     user.delete();
 
                     String getEmail = user.getEmail();
