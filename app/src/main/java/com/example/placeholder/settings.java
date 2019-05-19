@@ -46,7 +46,7 @@ public class settings extends AppCompatActivity {
             String uid = user.getUid();
         }
 
-        email.setText(demail);
+        email.setText("   " + demail);
 
 
         //delete button action
