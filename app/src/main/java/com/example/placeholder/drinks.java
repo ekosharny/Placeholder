@@ -119,7 +119,7 @@ public class drinks extends AppCompatActivity {
                     AddData(details);
                 }
 
-                String smoothie="";
+                String smoothie="Smoothie: ";
 
                 if(greekyogurtb.isChecked() || wholemilkb.isChecked() || almondmilkb.isChecked() || soymilkb.isChecked() || coconutmilkb.isChecked()) {
                     if (greekyogurtb.isChecked()) {

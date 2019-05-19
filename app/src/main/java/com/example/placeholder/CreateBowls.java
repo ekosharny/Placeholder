@@ -119,7 +119,7 @@ public class CreateBowls extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String custombowl="";
+                String custombowl="Custom Bowl: ";
 
                 if(whiteRiceb.isChecked() || brownRiceb.isChecked() || mashedPotatob.isChecked() || quinoab.isChecked() || mixedGreensb.isChecked()) {
                     if (whiteRiceb.isChecked()) {
