@@ -1,20 +1,24 @@
 package com.example.placeholder.Database;
 
-public class Details {
-    private int orderID;
+public class History {
+    private String UID;
     private String item;
     private double price;
-    private String email;
+    private int orderID;
 
-    public Details(){}
+    public History(){}
 
-    public Details(int orderID, String item, double price, String email) {
-        this.orderID=orderID;
+    public History(String UID, String item, double price, int orderID) {
+        this.UID = UID;
         this.item = item;
         this.price=price;
-        this.email=email;
+        this.orderID=orderID;
     }
 
+    public String getUID(){return UID;}
+    public void setUID(String UID){
+        this.UID=UID;
+    }
 
     public int getOrderID() {
         return orderID;
@@ -43,14 +47,5 @@ public class Details {
     public void setPrice(double price) {
 
         this.price = price;
-    }
-    public String getEmail() {
-
-        return email;
-    }
-
-    public void setEmail(String email) {
-
-        this.email = email;
     }
 }

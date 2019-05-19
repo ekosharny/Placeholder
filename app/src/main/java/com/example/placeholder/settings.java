@@ -20,7 +20,8 @@ public class settings extends AppCompatActivity {
     Button delete, save, logout;
     EditText changeUsername, changePassword, changePassword2;
     FirebaseUser user;
-    TextView email,viewUsersDB, viewDetailsDB;
+    FirebaseAuth mAuth;
+    TextView email;
     String demail;
 
     @Override
@@ -42,10 +43,9 @@ public class settings extends AppCompatActivity {
         changePassword2 = findViewById(R.id.changepassword2);
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
-        //viewUsersDB = findViewById(R.id.viewUsersBox);
-        viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
 
         if (user != null) {
 
@@ -61,7 +61,11 @@ public class settings extends AppCompatActivity {
             public void onClick(View v){
                 if(user!=null) {
 
+                    mAuth.signOut();
                     user.delete();
+
+                    String getEmail = user.getEmail();
+                    boolean x = deleteAccount(getEmail);
 
                     startActivity(new Intent(settings.this, SignIn.class));
                 }
@@ -105,38 +109,19 @@ public class settings extends AppCompatActivity {
             }
         });
 
-        /*
-        viewUsersDB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showUsers(view);
-            }
-        });
-        */
-
-        viewDetailsDB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDetails(view);
-            }
-        });
 
     }
 
-
-    public void showUsers(View view) {
-        DatabaseHelper dbHandler = new DatabaseHelper(this);
-        viewUsersDB.setText(dbHandler.loadUsers());
-    }
-
-    public void showDetails(View view){
-        DatabaseHelper dbHandler = new DatabaseHelper(this);
-        viewDetailsDB.setText(dbHandler.loadDetails());
-    }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+    public boolean deleteAccount(String email){
+        //creates new DatabaseHelper and calls deleteHandler
+        DatabaseHelper dhelper = new DatabaseHelper(this);
+        boolean x = dhelper.deleteUser(email);
+        return x;
     }
 
 }

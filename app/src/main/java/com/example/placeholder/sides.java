@@ -1,15 +1,15 @@
 package com.example.placeholder;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Toast;
 
 import com.example.placeholder.Database.Details;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class sides extends AppCompatActivity {
 
@@ -71,62 +71,74 @@ public class sides extends AppCompatActivity {
 
         addToCart = findViewById(R.id.addSidesButton);
 
-        if(potatochipsb.isChecked()){
-            Details details = new Details(1, potatochips, chipsprice);
-            AddData(details);
-        }
-        if(sourcreamchipsb.isChecked()){
-            Details details = new Details(1, sourcreamchips, chipsprice );
-            AddData(details);
-        }
-        if(cheddarchipsb.isChecked()){
-            Details details = new Details(1, cheddarchips, chipsprice );
-            AddData(details);
-        }
-        if(bbqchipsb.isChecked()){
-            Details details = new Details(1, bbqchips, chipsprice);
-            AddData(details);
-        }
-        if(popcornb.isChecked()){
-            Details details = new Details(1, popcorn, chipsprice );
-            AddData(details);
-        }
-        if(whitebreadb.isChecked()){
-            Details details = new Details(1, whitebread, breadprice);
-            AddData(details);
-        }
-        if(wholewheatb.isChecked()){
-            Details details = new Details(1, wholewheat, breadprice);
-            AddData(details);
-        }
-        if(wholegrainb.isChecked()){
-            Details details = new Details(1, wholegrain, breadprice);
-            AddData(details);
-        }
-        if(sourdoughb.isChecked()){
-            Details details = new Details(1, sourdough, breadprice);
-            AddData(details);
-        }
-        if(pitab.isChecked()){
-            Details details = new Details(1, pita, breadprice);
-            AddData(details);
-        }
-        if(frenchonionb.isChecked()){
-            Details details = new Details(1, frenchonion, soupprice);
-            AddData(details);
-        }
-        if(clamchowderb.isChecked()){
-            Details details = new Details(1, clamchowder, soupprice );
-            AddData(details);
-        }
-        if(veggiesoupb.isChecked()){
-            Details details = new Details(1,veggiesoup, soupprice);
-            AddData(details);
-        }
-        if(chickennoodleb.isChecked()){
-            Details details = new Details(1, chickennoodle, soupprice);
-            AddData(details);
-        }
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String e = user.getEmail();
+
+                    if (potatochipsb.isChecked()) {
+                        Details details = new Details(1, potatochips, chipsprice, e);
+                        AddData(details);
+                    }
+                    if (sourcreamchipsb.isChecked()) {
+                        Details details = new Details(1, sourcreamchips, chipsprice, e);
+                        AddData(details);
+                    }
+                    if (cheddarchipsb.isChecked()) {
+                        Details details = new Details(1, cheddarchips, chipsprice, e);
+                        AddData(details);
+                    }
+                    if (bbqchipsb.isChecked()) {
+                        Details details = new Details(1, bbqchips, chipsprice, e);
+                        AddData(details);
+                    }
+                    if (popcornb.isChecked()) {
+                        Details details = new Details(1, popcorn, chipsprice, e);
+                        AddData(details);
+                    }
+                    if (whitebreadb.isChecked()) {
+                        Details details = new Details(1, whitebread, breadprice, e);
+                        AddData(details);
+                    }
+                    if (wholewheatb.isChecked()) {
+                        Details details = new Details(1, wholewheat, breadprice, e);
+                        AddData(details);
+                    }
+                    if (wholegrainb.isChecked()) {
+                        Details details = new Details(1, wholegrain, breadprice, e);
+                        AddData(details);
+                    }
+                    if (sourdoughb.isChecked()) {
+                        Details details = new Details(1, sourdough, breadprice, e);
+                        AddData(details);
+                    }
+                    if (pitab.isChecked()) {
+                        Details details = new Details(1, pita, breadprice, e);
+                        AddData(details);
+                    }
+                    if (frenchonionb.isChecked()) {
+                        Details details = new Details(1, frenchonion, soupprice, e);
+                        AddData(details);
+                    }
+                    if (clamchowderb.isChecked()) {
+                        Details details = new Details(1, clamchowder, soupprice, e);
+                        AddData(details);
+                    }
+                    if (veggiesoupb.isChecked()) {
+                        Details details = new Details(1, veggiesoup, soupprice, e);
+                        AddData(details);
+                    }
+                    if (chickennoodleb.isChecked()) {
+                        Details details = new Details(1, chickennoodle, soupprice, e);
+                        AddData(details);
+                    }
+                }
+            }
+        });
     }
 
     public void AddData(Details details) {

@@ -133,7 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_default"
-                android:text="Oatmean Raisin"
+                android:text="Oatmeal Raisin"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

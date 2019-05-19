@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.placeholder.Database.Details;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class drinks extends AppCompatActivity {
 
@@ -85,79 +87,84 @@ public class drinks extends AppCompatActivity {
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(cocacolab.isChecked()){
-                    Details details = new Details(1, cocacola, sodaprice );
-                    AddData(details);
-                }
-                if(pepsib.isChecked()){
-                    Details details = new Details(1, pepsi, sodaprice);
-                    AddData(details);
-                }
-                if(mountaindewb.isChecked()){
-                    Details details = new Details(1, mountaindew, sodaprice );
-                    AddData(details);
-                }
-                if(spriteb.isChecked()){
-                    Details details = new Details(1, sprite, sodaprice);
-                    AddData(details);
-                }
-                if(fantab.isChecked()){
-                    Details details = new Details(1, fanta, sodaprice );
-                    AddData(details);
-                }
-                if(applejb.isChecked()){
-                    Details details = new Details(1, applej, juiceprice);
-                    AddData(details);
-                }
-                if(cranberryjb.isChecked()){
-                    Details details = new Details(1, cranberryj, juiceprice );
-                    AddData(details);
-                }
-                if(orangejb.isChecked()){
-                    Details details = new Details(1, orangej, juiceprice);
-                    AddData(details);
-                }
-                if(lemonadeb.isChecked()){
-                    Details details = new Details(1, lemonade, juiceprice);
-                    AddData(details);
-                }
-                if(pineapplejb.isChecked()){
-                    Details details = new Details(1, pineapplej, juiceprice);
-                    AddData(details);
-                }
 
-                String smoothie="Smoothie: ";
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                if(greekyogurtb.isChecked() || wholemilkb.isChecked() || almondmilkb.isChecked() || soymilkb.isChecked() || coconutmilkb.isChecked()) {
-                    if (greekyogurtb.isChecked()) {
-                        smoothie += (greekyogurt + ", ");
-                    } else if (wholemilkb.isChecked()) {
-                        smoothie += (wholemilk + ", ");
-                    } else if (almondmilkb.isChecked()) {
-                        smoothie += (almondmilk + ", ");
-                    } else if (soymilkb.isChecked()) {
-                        smoothie += (soymilk + ", ");
-                    } else if (coconutmilkb.isChecked()) {
-                        smoothie += (coconutmilk + ", ");
+                if (user != null) {
+                    String e = user.getEmail();
+                    if (cocacolab.isChecked()) {
+                        Details details = new Details(1, cocacola, sodaprice, e);
+                        AddData(details);
+                    }
+                    if (pepsib.isChecked()) {
+                        Details details = new Details(1, pepsi, sodaprice, e);
+                        AddData(details);
+                    }
+                    if (mountaindewb.isChecked()) {
+                        Details details = new Details(1, mountaindew, sodaprice, e);
+                        AddData(details);
+                    }
+                    if (spriteb.isChecked()) {
+                        Details details = new Details(1, sprite, sodaprice, e);
+                        AddData(details);
+                    }
+                    if (fantab.isChecked()) {
+                        Details details = new Details(1, fanta, sodaprice, e);
+                        AddData(details);
+                    }
+                    if (applejb.isChecked()) {
+                        Details details = new Details(1, applej, juiceprice, e);
+                        AddData(details);
+                    }
+                    if (cranberryjb.isChecked()) {
+                        Details details = new Details(1, cranberryj, juiceprice, e);
+                        AddData(details);
+                    }
+                    if (orangejb.isChecked()) {
+                        Details details = new Details(1, orangej, juiceprice, e);
+                        AddData(details);
+                    }
+                    if (lemonadeb.isChecked()) {
+                        Details details = new Details(1, lemonade, juiceprice, e);
+                        AddData(details);
+                    }
+                    if (pineapplejb.isChecked()) {
+                        Details details = new Details(1, pineapplej, juiceprice, e);
+                        AddData(details);
                     }
 
-                    if(appleb.isChecked())
-                        smoothie+= (apple + ", ");
-                    if(bananab.isChecked())
-                        smoothie+= (banana + ", ");
-                    if(orangeb.isChecked())
-                        smoothie+= (orange + ", ");
-                    if(strawberriesb.isChecked())
-                        smoothie+= (strawberries + ", ");
-                    if(blueberriesb.isChecked())
-                        smoothie+= (blueberries + ", ");
+                    String smoothie = "Smoothie: ";
 
-                    Details details = new Details(1, smoothie, smoothieprice);
-                    AddData(details);
-                }
-                else{
-                    if(appleb.isChecked() || bananab.isChecked() || orangeb.isChecked() || strawberriesb.isChecked() || blueberriesb.isChecked()){
-                        Toast.makeText(drinks.this, "Please add a base", Toast.LENGTH_SHORT).show();
+                    if (greekyogurtb.isChecked() || wholemilkb.isChecked() || almondmilkb.isChecked() || soymilkb.isChecked() || coconutmilkb.isChecked()) {
+                        if (greekyogurtb.isChecked()) {
+                            smoothie += (greekyogurt + ", ");
+                        } else if (wholemilkb.isChecked()) {
+                            smoothie += (wholemilk + ", ");
+                        } else if (almondmilkb.isChecked()) {
+                            smoothie += (almondmilk + ", ");
+                        } else if (soymilkb.isChecked()) {
+                            smoothie += (soymilk + ", ");
+                        } else if (coconutmilkb.isChecked()) {
+                            smoothie += (coconutmilk + ", ");
+                        }
+
+                        if (appleb.isChecked())
+                            smoothie += (apple + ", ");
+                        if (bananab.isChecked())
+                            smoothie += (banana + ", ");
+                        if (orangeb.isChecked())
+                            smoothie += (orange + ", ");
+                        if (strawberriesb.isChecked())
+                            smoothie += (strawberries + ", ");
+                        if (blueberriesb.isChecked())
+                            smoothie += (blueberries + ", ");
+
+                        Details details = new Details(1, smoothie, smoothieprice, e);
+                        AddData(details);
+                    } else {
+                        if (appleb.isChecked() || bananab.isChecked() || orangeb.isChecked() || strawberriesb.isChecked() || blueberriesb.isChecked()) {
+                            Toast.makeText(drinks.this, "Please add a base", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }

@@ -1,29 +1,29 @@
 package com.example.placeholder.Database;
 
 public class Order {
-    private int orderID;
-    private String uID;
+    private String email;
+    private String orders;
 
     public Order(){}
 
-    public Order(int orderID, String uID) {
-        this.orderID = orderID;
-        this.uID = uID;
+    public Order(String email, String orders) {
+        this.email = email;
+        this.orders = orders;
     }
 
-    public int getOrderID() {
-        return orderID;
+    public String getEmail() {
+        return email;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public void setEmail(String email) {
+        this.email=email;
     }
 
-    public String getuID() {
-        return uID;
+    public String getOrders() {
+        return orders;
     }
 
-    public void setuID(String uID) {
-        this.uID = uID;
+    public void setOrders(String orders) {
+        this.orders = orders;
     }
 }
