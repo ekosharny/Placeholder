@@ -1,14 +1,14 @@
 package com.example.placeholder.Database;
 
-public class Details {
+public class History {
     private String UID;
     private String item;
     private double price;
     private int orderID;
 
-    public Details(){}
+    public History(){}
 
-    public Details(String UID, String item, double price, int orderID) {
+    public History(String UID, String item, double price, int orderID) {
         this.UID = UID;
         this.item = item;
         this.price=price;

@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.placeholder.Database.Details;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class CreateBowls extends AppCompatActivity {
 
@@ -225,8 +227,14 @@ public class CreateBowls extends AppCompatActivity {
                     custombowl += (sriracha = ".");
                 }
 
-                Details details = new Details(1, custombowl, bowlprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid;
+
+                if (user != null) {
+                    uid = user.getUid();
+                    Details details = new Details(uid, custombowl, bowlprice, 1);
+                    AddData(details);
+                }
             }
         });
     }

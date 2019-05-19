@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.placeholder.Database.Order;
+import com.example.placeholder.Database.History;
 import com.example.placeholder.Database.User;
 import com.example.placeholder.Database.Details;
 
@@ -25,17 +25,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         private static final String COLUMN_UID = "UID";
         private static final String COLUMN_EMAIL = "UserEmail";
 
-        /*
-        ORDERS TABLE
-        Fields:
-            OrderID
-            UID         NOT NULL
-            PRIMARY KEY (OrderID)
-            FOREIGN KEY (UserID)
-         */
-        private static final String TABLE_NAME2 = "Orders";
-        private static final String COLUMN_ORDERID = "OrderID";
-        private static final String COLUMN_UID2 = "UID";
 
         /*
         PRODUCTS TABLE
@@ -43,12 +32,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             OrderID NOT NULL
             ItemName NOT NULL
             Price       NOT NULL
+            UID
             FOREGIN KEY (OrderID)
          */
-        private static final String TABLE_NAME3 = "OrderDetails";
+        private static final String TABLE_NAME2 = "OrderDetails";
+        private static final String COLUMN_UID2 = "UID";
+        private static final String COLUMN_ITEM2 = "ItemName";
+        private static final String COLUMN_PRICE2 = "Price";
         private static final String COLUMN_ORDERID2 = "OrderID";
-        private static final String COLUMN_ITEM = "ItemName";
-        private static final String COLUMN_PRICE = "Price";
+
+
+        //ORDERHISTORY TABLE
+        private static final String TABLE_NAME3 = "OrderHistory";
+        private static final String COLUMN_UID3 = "UID";
+        private static final String COLUMN_ITEM3 = "ItemName";
+        private static final String COLUMN_PRICE3 = "Price";
+        private static final String COLUMN_ORDERID3 = "OrderID";
+
 
 
         //initialize the database
@@ -63,14 +63,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     " VARCHAR PRIMARY KEY, " + COLUMN_EMAIL + " VARCHAR);";
             db.execSQL(CREATE_TABLE1);
 
-            //creates ORDERS table
-            String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_ORDERID +
-                    " INTEGER PRIMARY KEY, " + COLUMN_UID2 + " VARCHAR, " + " FOREIGN KEY (UID) REFERENCES Users (UID));";
+            //creates ORDERDETAILS table
+            String CREATE_TABLE2 = "CREATE TABLE " + TABLE_NAME2 + " (" + COLUMN_UID2 +
+                    " VARCHAR NOT NULL, " + COLUMN_ITEM2 + " VARCHAR NOT NULL, " + COLUMN_PRICE2 + " DOUBLE," +
+                    COLUMN_ORDERID2 + " NUMBER, PRIMARY KEY(UID, ItemName));";
             db.execSQL(CREATE_TABLE2);
 
-            //creates ORDERDETAILS table
-            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_ORDERID2 +
-                    " INTEGER NOT NULL, " + COLUMN_ITEM + " VARCHAR NOT NULL, " + COLUMN_PRICE + " DOUBLE, PRIMARY KEY(OrderID, ItemName));";
+            String CREATE_TABLE3 = "CREATE TABLE " + TABLE_NAME3 + " (" + COLUMN_UID3 +
+                    " VARCHAR NOT NULL, " + COLUMN_ITEM3 + " VARCHAR NOT NULL, " + COLUMN_PRICE3 + " DOUBLE," +
+                    COLUMN_ORDERID3 + "NUMBER, PRIMARY KEY(UID, ItemName));";
             db.execSQL(CREATE_TABLE3);
 
         }
@@ -106,34 +107,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result;
         }
 
-        //ORDERS TABLE
-       public String loadOrders() {
+       //ORDERS DETAILS TABLE
+       public String loadDetails() {
 
            String result = "";
            String query = "Select*FROM " + TABLE_NAME2;
            SQLiteDatabase db = this.getWritableDatabase();
            Cursor cursor = db.rawQuery(query, null);
            while (cursor.moveToNext()) {
-               int result_0 = cursor.getInt(0);
-               String result_1 = cursor.getString(1);
-               result += result_0 + " " + result_1 + " " + System.getProperty("line.separator");
-           }
-           cursor.close();
-           db.close();
-           return result;
-       }
-
-       //ORDERS DETAILS TABLE
-       public String loadDetails() {
-
-           String result = "";
-           String query = "Select*FROM " + TABLE_NAME3;
-           SQLiteDatabase db = this.getWritableDatabase();
-           Cursor cursor = db.rawQuery(query, null);
-           while (cursor.moveToNext()) {
-               int result_0 = cursor.getInt(0);
+               String result_0 = cursor.getString(0);
                String result_1 = cursor.getString(1);
                double result_2 = cursor.getDouble(2);
+               int result_4=cursor.getInt(4);
                result += result_0 + "         " + result_1 + "  $" + result_2 + System.getProperty("line.separator");
            }
            cursor.close();
@@ -157,6 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+
     public String loadPrices(){
         String result = "";
         String query = "Select*FROM " + TABLE_NAME3;
@@ -167,6 +153,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String result_1 = cursor.getString(1);
             double result_2 = cursor.getDouble(2);
             result += "$ " + result_2 +"0" + System.getProperty("line.separator");
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+    public String loadHistory() {
+
+        String result = "";
+        String query = "Select*FROM " + TABLE_NAME3;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            String result_0 = cursor.getString(0);
+            String result_1 = cursor.getString(1);
+            double result_2 = cursor.getDouble(2);
+            int result_4=cursor.getInt(4);
+            result += result_0 + "         " + result_1 + "  $" + result_2 + System.getProperty("line.separator");
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+    public String loadOrders(){
+        String result = "";
+        String query = "Select*FROM " + TABLE_NAME3;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            int result_0 = cursor.getInt(0);
+            String result_1 = cursor.getString(1);
+            double result_2 = cursor.getDouble(2);
+            result += "  " + result_1 + System.getProperty("line.separator");
         }
         cursor.close();
         db.close();
@@ -187,28 +207,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
 
-        //ADD VALUES TO ORDERS TABLE
-       public void addOrder(Order order) {
-
-           ContentValues values = new ContentValues();
-           values.put(COLUMN_ORDERID, order.getOrderID());
-           values.put(COLUMN_UID2, order.getuID());
-           SQLiteDatabase db = this.getWritableDatabase();
-           db.insert(TABLE_NAME2, null, values);
-           db.close();
-       }
 
        //ADD VALUES TO ORDERDETAILS TABLE
        public void addDetails(Details details) {
 
            ContentValues values = new ContentValues();
+           values.put(COLUMN_UID2, details.getUID());
+           values.put(COLUMN_ITEM2, details.getItemName());
+           values.put(COLUMN_PRICE2, details.getPrice());
            values.put(COLUMN_ORDERID2, details.getOrderID());
-           values.put(COLUMN_ITEM, details.getItemName());
-           values.put(COLUMN_PRICE, details.getPrice());
            SQLiteDatabase db = this.getWritableDatabase();
-           db.insert(TABLE_NAME3, null, values);
+           db.insert(TABLE_NAME2, null, values);
            db.close();
        }
+
+        public void addHistory(History history) {
+
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_UID3, history.getUID());
+            values.put(COLUMN_ITEM3, history.getItemName());
+            values.put(COLUMN_PRICE3, history.getPrice());
+            values.put(COLUMN_ORDERID3, history.getOrderID());
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.insert(TABLE_NAME3, null, values);
+            db.close();
+        }
 
 
         //finds information in the database by condition
@@ -233,23 +256,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
            return user;
        }
 
-       //FIND ORDER
-        public Order findOrder(String uid) {
-            String query = "Select * FROM " + TABLE_NAME2 + " WHERE " + COLUMN_UID2 + " = " + "'" + uid + "'";
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(query, null);
-            Order order = new Order();
-            if (cursor.moveToFirst()) {
-                cursor.moveToFirst();
-                order.setOrderID(cursor.getInt(0));
-                order.setuID(cursor.getString(1));
-                cursor.close();
-            } else {
-                order = null;
-            }
-            db.close();
-            return order;
-        }
 
         //FIND DETAILS
         public Details findDetails(int orderid) {
@@ -296,36 +302,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result;
         }
 
-        public boolean deleteOrder(String uid) {
-
-            boolean result = false;
-            String query = "Select*FROM " + TABLE_NAME2 + " WHERE " + COLUMN_UID2 + "= '" + uid + "'";
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(query, null);
-            Order order = new Order();
-            if (cursor.moveToFirst()) {
-                order.setuID(cursor.getString(1));
-                db.delete(TABLE_NAME2, COLUMN_UID2 + "=?",
-                    new String[] {
-                            String.valueOf(order.getuID())
-                    });
-            cursor.close();
-            result = true;
-            }
-            db.close();
-            return result;
-        }
 
         public boolean deleteDetails(int orderid) {
 
             boolean result = false;
-            String query = "Select*FROM " + TABLE_NAME3 + " WHERE " + COLUMN_ORDERID2 + "= '" + orderid + "'";
+            String query = "Select*FROM " + TABLE_NAME2 + " WHERE " + COLUMN_ORDERID2 + "= '" + orderid + "'";
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(query, null);
             Details details = new Details();
             if (cursor.moveToFirst()) {
-                details.setOrderID(cursor.getInt(0));
-                db.delete(TABLE_NAME3, COLUMN_ORDERID2 + "=?",
+                details.setOrderID(cursor.getInt(4));
+                db.delete(TABLE_NAME2, COLUMN_ORDERID2 + "=?",
                     new String[] {
                             String.valueOf(details.getOrderID())
                     });
@@ -348,20 +335,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return db.update(TABLE_NAME1, args, COLUMN_UID + "='" + uid + "'", null) > 0;
         }
 
-        public boolean updateOrder(int orderID, String uid) {
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues args = new ContentValues();
-            args.put(COLUMN_ORDERID, orderID);
-            args.put(COLUMN_UID2, uid);
-
-            return db.update(TABLE_NAME2, args, COLUMN_ORDERID + "='" + orderID + "'", null) > 0;
-        }
         public boolean updateDetails(int orderID, String item, double price) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues args = new ContentValues();
             args.put(COLUMN_ORDERID2, orderID);
-            args.put(COLUMN_ITEM, item);
-            args.put(COLUMN_PRICE, price);
+            args.put(COLUMN_ITEM2, item);
+            args.put(COLUMN_PRICE2, price);
 
             return db.update(TABLE_NAME3, args, COLUMN_ORDERID2 + "='" + orderID + "'", null) > 0;
         }

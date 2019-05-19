@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.placeholder.Database.Details;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class desserts extends AppCompatActivity {
 
@@ -68,57 +70,63 @@ public class desserts extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(redvelvetcakeb.isChecked()){
-                    Details details = new Details(1, redvelvetcake, cakeprice);
-                    AddData(details);
-                }
-                if(chocolatecakeb.isChecked()){
-                    Details details = new Details(1, chocolatecake, cakeprice);
-                    AddData(details);
-                }
-                if(strawberrycakeb.isChecked()){
-                    Details details = new Details(1, strawberrycake, cakeprice);
-                    AddData(details);
-                }
-                if(blueberrycakeb.isChecked()){
-                    Details details = new Details(1, blueberrycake, cakeprice);
-                    AddData(details);
-                }
-                if(toffeecakeb.isChecked()){
-                    Details details = new Details(1, toffeecake, cakeprice);
-                    AddData(details);
-                }
-                if(pbcakeb.isChecked()){
-                    Details details = new Details(1, pbcake, cakeprice);
-                    AddData(details);
-                }
-                if(chocolatechipb.isChecked()){
-                    Details details = new Details(1, chocolatechip, cookieprice);
-                    AddData(details);
-                }
-                if(oatmealraisinb.isChecked()){
-                    Details details = new Details(1, oatmealraisin, cookieprice);
-                    AddData(details);
-                }
-                if(pbcookieb.isChecked()){
-                    Details details = new Details(1, pbcookie, cookieprice);
-                    AddData(details);
-                }
-                if(macadamiab.isChecked()){
-                    Details details = new Details(1, macadamia, cookieprice);
-                    AddData(details);
-                }
-                if(redvelvetcupcakeb.isChecked()){
-                    Details details = new Details(1, redvelvetcupcake, cupcakeprice);
-                    AddData(details);
-                }
-                if(chocolatecupcakeb.isChecked()){
-                    Details details = new Details(1, chocolatecupcake, cupcakeprice);
-                    AddData(details);
-                }
-                if(vanillacupcakeb.isChecked()){
-                    Details details = new Details(1, vanillacupcake, cupcakeprice);
-                    AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+
+                    if (redvelvetcakeb.isChecked()) {
+                        Details details = new Details(uid, redvelvetcake, cakeprice, 1);
+                        AddData(details);
+                    }
+                    if (chocolatecakeb.isChecked()) {
+                        Details details = new Details(uid, chocolatecake, cakeprice, 1);
+                        AddData(details);
+                    }
+                    if (strawberrycakeb.isChecked()) {
+                        Details details = new Details(uid, strawberrycake, cakeprice, 1);
+                        AddData(details);
+                    }
+                    if (blueberrycakeb.isChecked()) {
+                        Details details = new Details(uid, blueberrycake, cakeprice,1);
+                        AddData(details);
+                    }
+                    if (toffeecakeb.isChecked()) {
+                        Details details = new Details(uid, toffeecake, cakeprice,1);
+                        AddData(details);
+                    }
+                    if (pbcakeb.isChecked()) {
+                        Details details = new Details(uid, pbcake, cakeprice,1);
+                        AddData(details);
+                    }
+                    if (chocolatechipb.isChecked()) {
+                        Details details = new Details(uid, chocolatechip, cookieprice,1);
+                        AddData(details);
+                    }
+                    if (oatmealraisinb.isChecked()) {
+                        Details details = new Details(uid, oatmealraisin, cookieprice,1);
+                        AddData(details);
+                    }
+                    if (pbcookieb.isChecked()) {
+                        Details details = new Details(uid, pbcookie, cookieprice,1);
+                        AddData(details);
+                    }
+                    if (macadamiab.isChecked()) {
+                        Details details = new Details(uid, macadamia, cookieprice,1);
+                        AddData(details);
+                    }
+                    if (redvelvetcupcakeb.isChecked()) {
+                        Details details = new Details(uid, redvelvetcupcake, cupcakeprice,1);
+                        AddData(details);
+                    }
+                    if (chocolatecupcakeb.isChecked()) {
+                        Details details = new Details(uid, chocolatecupcake, cupcakeprice,1);
+                        AddData(details);
+                    }
+                    if (vanillacupcakeb.isChecked()) {
+                        Details details = new Details(uid, vanillacupcake, cupcakeprice,1);
+                        AddData(details);
+                    }
                 }
             }
         });
