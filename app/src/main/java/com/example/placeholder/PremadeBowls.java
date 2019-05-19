@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.example.placeholder.Database.Details;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PremadeBowls extends AppCompatActivity {
 
@@ -57,39 +59,69 @@ public class PremadeBowls extends AppCompatActivity {
 
         calib.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, cali, caliprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, cali, caliprice,1);
+                    AddData(details);
+                }
             }
         });
 
         tritrib.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, tritri, tritriprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, tritri, tritriprice,1);
+                    AddData(details);
+                }
             }
         });
         macfergusb.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, macfergus, macfergusprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, macfergus, macfergusprice,1);
+                    AddData(details);
+                }
             }
         });
         hawaiianb.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, hawaiian, hawaiianprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, hawaiian, hawaiianprice, 1);
+                    AddData(details);
+                }
             }
         });
         vegeterianb.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, vegeterian, vegetarianprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, vegeterian, vegetarianprice,1);
+                    AddData(details);
+                }
             }
         });
         farmerb.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                Details details = new Details(1, farmer, farmerprice);
-                AddData(details);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String uid = user.getUid();
+                    Details details = new Details(uid, farmer, farmerprice,1);
+                    AddData(details);
+                }
             }
         });
 

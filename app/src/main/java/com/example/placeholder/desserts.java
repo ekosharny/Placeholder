@@ -72,7 +72,7 @@ public class desserts extends AppCompatActivity {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                if (user != null) {
+                if (user != null ) {
                     String uid = user.getUid();
 
                     if (redvelvetcakeb.isChecked()) {

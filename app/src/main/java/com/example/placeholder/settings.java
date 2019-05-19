@@ -42,7 +42,7 @@ public class settings extends AppCompatActivity {
         changePassword2 = findViewById(R.id.changepassword2);
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
-        //viewUsersDB = findViewById(R.id.viewUsersBox);
+        viewUsersDB = findViewById(R.id.viewUsersDB);
         viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -62,6 +62,9 @@ public class settings extends AppCompatActivity {
                 if(user!=null) {
 
                     user.delete();
+
+                    String getEmail = user.getEmail();
+                    boolean x = deleteAccount(getEmail);
 
                     startActivity(new Intent(settings.this, SignIn.class));
                 }
@@ -105,14 +108,14 @@ public class settings extends AppCompatActivity {
             }
         });
 
-        /*
+
         viewUsersDB.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 showUsers(view);
             }
         });
-        */
+
 
         viewDetailsDB.setOnClickListener(new OnClickListener() {
             @Override
@@ -137,6 +140,12 @@ public class settings extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+    public boolean deleteAccount(String email){
+        //creates new DatabaseHelper and calls deleteHandler
+        DatabaseHelper dhelper = new DatabaseHelper(this);
+        boolean x = dhelper.deleteUser(email);
+        return x;
     }
 
 }

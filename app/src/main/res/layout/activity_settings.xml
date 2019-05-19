@@ -99,6 +99,11 @@
         android:text="Logout" />
 
     <TextView
+        android:id="@+id/viewUsersDB"
+        android:layout_width="match_parent"
+        android:layout_height="88dp" />
+
+    <TextView
         android:id="@+id/viewDetailsBox"
         android:layout_width="match_parent"
         android:layout_height="303dp" />
