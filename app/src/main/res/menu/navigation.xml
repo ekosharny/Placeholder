@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_previous"
         android:icon="@drawable/ic_access_time_black_24dp"
-        android:title="Previous Orders" />
+        android:title="My Orders" />
 
     <item
         android:id="@+id/navigation_cart"
