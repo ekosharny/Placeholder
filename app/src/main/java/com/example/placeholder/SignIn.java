@@ -33,12 +33,20 @@ public class SignIn extends AppCompatActivity {
         dhelper = new DatabaseHelper(this);
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         //links the buttons/text-edit to the id's in the layout
         login = findViewById(R.id.button);
         email = findViewById(R.id.email);
         password =  findViewById(R.id.password);
         click = findViewById(R.id.click);
+
+
+        //automatically goes to main activity if user is already signed in on device
+        if (user != null){
+            startActivity(new Intent(SignIn.this, MainActivity.class));
+            finish();
+        }
 
         //gives the login button an action
         login.setOnClickListener(new OnClickListener(){
