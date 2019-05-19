@@ -62,8 +62,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, cali, caliprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, cali, caliprice, e);
                     AddData(details);
                 }
             }
@@ -74,8 +74,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, tritri, tritriprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, tritri, tritriprice, e);
                     AddData(details);
                 }
             }
@@ -85,8 +85,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, macfergus, macfergusprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, macfergus, macfergusprice, e);
                     AddData(details);
                 }
             }
@@ -96,8 +96,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, hawaiian, hawaiianprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, hawaiian, hawaiianprice, e);
                     AddData(details);
                 }
             }
@@ -107,8 +107,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, vegeterian, vegetarianprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, vegeterian, vegetarianprice, e);
                     AddData(details);
                 }
             }
@@ -118,8 +118,8 @@ public class PremadeBowls extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
-                    Details details = new Details(1, farmer, farmerprice);
+                    String e = user.getEmail();
+                    Details details = new Details(1, farmer, farmerprice, e);
                     AddData(details);
                 }
             }

@@ -21,7 +21,7 @@ public class settings extends AppCompatActivity {
     EditText changeUsername, changePassword, changePassword2;
     FirebaseUser user;
     FirebaseAuth mAuth;
-    TextView email,viewUsersDB, viewDetailsDB;
+    TextView email;
     String demail;
 
     @Override
@@ -43,8 +43,6 @@ public class settings extends AppCompatActivity {
         changePassword2 = findViewById(R.id.changepassword2);
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
-        viewUsersDB = findViewById(R.id.viewUsersDB);
-        viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -112,33 +110,8 @@ public class settings extends AppCompatActivity {
         });
 
 
-        viewUsersDB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showUsers(view);
-            }
-        });
-
-
-        viewDetailsDB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDetails(view);
-            }
-        });
-
     }
 
-
-    public void showUsers(View view) {
-        DatabaseHelper dbHandler = new DatabaseHelper(this);
-        viewUsersDB.setText(dbHandler.loadUsers());
-    }
-
-    public void showDetails(View view){
-        DatabaseHelper dbHandler = new DatabaseHelper(this);
-        viewDetailsDB.setText(dbHandler.loadDetails());
-    }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

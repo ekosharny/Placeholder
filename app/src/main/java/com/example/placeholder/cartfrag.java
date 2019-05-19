@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class cartfrag extends Fragment{
 
     TextView items, prices;
@@ -26,10 +29,17 @@ public class cartfrag extends Fragment{
         clear = view.findViewById(R.id.clear);
         checkout = view.findViewById(R.id.checkout);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String e="";
+        if (user != null) {
+            e = user.getEmail();
+        }
+
+
 
         DatabaseHelper dbHandler = new DatabaseHelper(getActivity());
-        items.setText(dbHandler.loadItems());
-        prices.setText(dbHandler.loadPrices());
+        items.setText(dbHandler.loadItems(e));
+        prices.setText(dbHandler.loadPrices(e));
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +52,14 @@ public class cartfrag extends Fragment{
                 else
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper dhelper = new DatabaseHelper(getActivity());
+                dhelper.copyOrders();
             }
         });
 

@@ -78,62 +78,62 @@ public class sides extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    String uid = user.getUid();
+                    String e = user.getEmail();
 
                     if (potatochipsb.isChecked()) {
-                        Details details = new Details(1, potatochips, chipsprice);
+                        Details details = new Details(1, potatochips, chipsprice, e);
                         AddData(details);
                     }
                     if (sourcreamchipsb.isChecked()) {
-                        Details details = new Details(1, sourcreamchips, chipsprice);
+                        Details details = new Details(1, sourcreamchips, chipsprice, e);
                         AddData(details);
                     }
                     if (cheddarchipsb.isChecked()) {
-                        Details details = new Details(1, cheddarchips, chipsprice);
+                        Details details = new Details(1, cheddarchips, chipsprice, e);
                         AddData(details);
                     }
                     if (bbqchipsb.isChecked()) {
-                        Details details = new Details(1, bbqchips, chipsprice);
+                        Details details = new Details(1, bbqchips, chipsprice, e);
                         AddData(details);
                     }
                     if (popcornb.isChecked()) {
-                        Details details = new Details(1, popcorn, chipsprice);
+                        Details details = new Details(1, popcorn, chipsprice, e);
                         AddData(details);
                     }
                     if (whitebreadb.isChecked()) {
-                        Details details = new Details(1, whitebread, breadprice);
+                        Details details = new Details(1, whitebread, breadprice, e);
                         AddData(details);
                     }
                     if (wholewheatb.isChecked()) {
-                        Details details = new Details(1, wholewheat, breadprice);
+                        Details details = new Details(1, wholewheat, breadprice, e);
                         AddData(details);
                     }
                     if (wholegrainb.isChecked()) {
-                        Details details = new Details(1, wholegrain, breadprice);
+                        Details details = new Details(1, wholegrain, breadprice, e);
                         AddData(details);
                     }
                     if (sourdoughb.isChecked()) {
-                        Details details = new Details(1, sourdough, breadprice);
+                        Details details = new Details(1, sourdough, breadprice, e);
                         AddData(details);
                     }
                     if (pitab.isChecked()) {
-                        Details details = new Details(1, pita, breadprice);
+                        Details details = new Details(1, pita, breadprice, e);
                         AddData(details);
                     }
                     if (frenchonionb.isChecked()) {
-                        Details details = new Details(1, frenchonion, soupprice);
+                        Details details = new Details(1, frenchonion, soupprice, e);
                         AddData(details);
                     }
                     if (clamchowderb.isChecked()) {
-                        Details details = new Details(1, clamchowder, soupprice);
+                        Details details = new Details(1, clamchowder, soupprice, e);
                         AddData(details);
                     }
                     if (veggiesoupb.isChecked()) {
-                        Details details = new Details(1, veggiesoup, soupprice);
+                        Details details = new Details(1, veggiesoup, soupprice, e);
                         AddData(details);
                     }
                     if (chickennoodleb.isChecked()) {
-                        Details details = new Details(1, chickennoodle, soupprice);
+                        Details details = new Details(1, chickennoodle, soupprice, e);
                         AddData(details);
                     }
                 }

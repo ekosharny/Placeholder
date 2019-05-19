@@ -228,11 +228,11 @@ public class CreateBowls extends AppCompatActivity {
                 }
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid;
+                String e;
 
                 if (user != null) {
-                    uid = user.getUid();
-                    Details details = new Details(1, custombowl, bowlprice);
+                    e = user.getEmail();
+                    Details details = new Details(1, custombowl, bowlprice, e);
                     AddData(details);
                 }
             }
