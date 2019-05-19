@@ -67,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
                         switch(menuItem.getItemId()){
                             case R.id.navigation_menu:
                                 selectedFragment=new menufrag();
-
+                                break;
+                            case R.id.navigation_featured:
+                                selectedFragment= new ordersfrag();
+                                break;
                             case R.id.navigation_cart:
                                 selectedFragment = new cartfrag();
                                 break;
