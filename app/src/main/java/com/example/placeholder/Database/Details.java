@@ -1,24 +1,18 @@
 package com.example.placeholder.Database;
 
 public class Details {
-    private String UID;
+    private int orderID;
     private String item;
     private double price;
-    private int orderID;
 
     public Details(){}
 
-    public Details(String UID, String item, double price, int orderID) {
-        this.UID = UID;
+    public Details(int orderID, String item, double price) {
+        this.orderID=orderID;
         this.item = item;
         this.price=price;
-        this.orderID=orderID;
     }
 
-    public String getUID(){return UID;}
-    public void setUID(String UID){
-        this.UID=UID;
-    }
 
     public int getOrderID() {
         return orderID;

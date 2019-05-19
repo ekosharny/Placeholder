@@ -63,7 +63,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, cali, caliprice,1);
+                    Details details = new Details(1, cali, caliprice);
                     AddData(details);
                 }
             }
@@ -75,7 +75,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, tritri, tritriprice,1);
+                    Details details = new Details(1, tritri, tritriprice);
                     AddData(details);
                 }
             }
@@ -86,7 +86,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, macfergus, macfergusprice,1);
+                    Details details = new Details(1, macfergus, macfergusprice);
                     AddData(details);
                 }
             }
@@ -97,7 +97,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, hawaiian, hawaiianprice, 1);
+                    Details details = new Details(1, hawaiian, hawaiianprice);
                     AddData(details);
                 }
             }
@@ -108,7 +108,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, vegeterian, vegetarianprice,1);
+                    Details details = new Details(1, vegeterian, vegetarianprice);
                     AddData(details);
                 }
             }
@@ -119,7 +119,7 @@ public class PremadeBowls extends AppCompatActivity {
 
                 if (user != null) {
                     String uid = user.getUid();
-                    Details details = new Details(uid, farmer, farmerprice,1);
+                    Details details = new Details(1, farmer, farmerprice);
                     AddData(details);
                 }
             }

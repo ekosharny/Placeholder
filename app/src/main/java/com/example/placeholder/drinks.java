@@ -93,43 +93,43 @@ public class drinks extends AppCompatActivity {
                 if (user != null) {
                     String uid = user.getUid();
                     if (cocacolab.isChecked()) {
-                        Details details = new Details(uid, cocacola, sodaprice, 1);
+                        Details details = new Details(1, cocacola, sodaprice);
                         AddData(details);
                     }
                     if (pepsib.isChecked()) {
-                        Details details = new Details(uid, pepsi, sodaprice,1);
+                        Details details = new Details(1, pepsi, sodaprice);
                         AddData(details);
                     }
                     if (mountaindewb.isChecked()) {
-                        Details details = new Details(uid, mountaindew, sodaprice, 1);
+                        Details details = new Details(1, mountaindew, sodaprice);
                         AddData(details);
                     }
                     if (spriteb.isChecked()) {
-                        Details details = new Details(uid, sprite, sodaprice, 1);
+                        Details details = new Details(1, sprite, sodaprice);
                         AddData(details);
                     }
                     if (fantab.isChecked()) {
-                        Details details = new Details(uid, fanta, sodaprice,1);
+                        Details details = new Details(1, fanta, sodaprice);
                         AddData(details);
                     }
                     if (applejb.isChecked()) {
-                        Details details = new Details(uid, applej, juiceprice,1);
+                        Details details = new Details(1, applej, juiceprice);
                         AddData(details);
                     }
                     if (cranberryjb.isChecked()) {
-                        Details details = new Details(uid, cranberryj, juiceprice,1);
+                        Details details = new Details(1, cranberryj, juiceprice);
                         AddData(details);
                     }
                     if (orangejb.isChecked()) {
-                        Details details = new Details(uid, orangej, juiceprice,1);
+                        Details details = new Details(1, orangej, juiceprice);
                         AddData(details);
                     }
                     if (lemonadeb.isChecked()) {
-                        Details details = new Details(uid, lemonade, juiceprice,1);
+                        Details details = new Details(1, lemonade, juiceprice);
                         AddData(details);
                     }
                     if (pineapplejb.isChecked()) {
-                        Details details = new Details(uid, pineapplej, juiceprice,1);
+                        Details details = new Details(1, pineapplej, juiceprice);
                         AddData(details);
                     }
 
@@ -159,7 +159,7 @@ public class drinks extends AppCompatActivity {
                         if (blueberriesb.isChecked())
                             smoothie += (blueberries + ", ");
 
-                        Details details = new Details(uid, smoothie, smoothieprice,1);
+                        Details details = new Details(1, smoothie, smoothieprice);
                         AddData(details);
                     } else {
                         if (appleb.isChecked() || bananab.isChecked() || orangeb.isChecked() || strawberriesb.isChecked() || blueberriesb.isChecked()) {

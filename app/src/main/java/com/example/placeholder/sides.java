@@ -81,59 +81,59 @@ public class sides extends AppCompatActivity {
                     String uid = user.getUid();
 
                     if (potatochipsb.isChecked()) {
-                        Details details = new Details(uid, potatochips, chipsprice, 1);
+                        Details details = new Details(1, potatochips, chipsprice);
                         AddData(details);
                     }
                     if (sourcreamchipsb.isChecked()) {
-                        Details details = new Details(uid, sourcreamchips, chipsprice, 1);
+                        Details details = new Details(1, sourcreamchips, chipsprice);
                         AddData(details);
                     }
                     if (cheddarchipsb.isChecked()) {
-                        Details details = new Details(uid, cheddarchips, chipsprice, 1);
+                        Details details = new Details(1, cheddarchips, chipsprice);
                         AddData(details);
                     }
                     if (bbqchipsb.isChecked()) {
-                        Details details = new Details(uid, bbqchips, chipsprice,1);
+                        Details details = new Details(1, bbqchips, chipsprice);
                         AddData(details);
                     }
                     if (popcornb.isChecked()) {
-                        Details details = new Details(uid, popcorn, chipsprice,1);
+                        Details details = new Details(1, popcorn, chipsprice);
                         AddData(details);
                     }
                     if (whitebreadb.isChecked()) {
-                        Details details = new Details(uid, whitebread, breadprice,1);
+                        Details details = new Details(1, whitebread, breadprice);
                         AddData(details);
                     }
                     if (wholewheatb.isChecked()) {
-                        Details details = new Details(uid, wholewheat, breadprice,1);
+                        Details details = new Details(1, wholewheat, breadprice);
                         AddData(details);
                     }
                     if (wholegrainb.isChecked()) {
-                        Details details = new Details(uid, wholegrain, breadprice,1);
+                        Details details = new Details(1, wholegrain, breadprice);
                         AddData(details);
                     }
                     if (sourdoughb.isChecked()) {
-                        Details details = new Details(uid, sourdough, breadprice,1);
+                        Details details = new Details(1, sourdough, breadprice);
                         AddData(details);
                     }
                     if (pitab.isChecked()) {
-                        Details details = new Details(uid, pita, breadprice,1);
+                        Details details = new Details(1, pita, breadprice);
                         AddData(details);
                     }
                     if (frenchonionb.isChecked()) {
-                        Details details = new Details(uid, frenchonion, soupprice,1);
+                        Details details = new Details(1, frenchonion, soupprice);
                         AddData(details);
                     }
                     if (clamchowderb.isChecked()) {
-                        Details details = new Details(uid, clamchowder, soupprice,1);
+                        Details details = new Details(1, clamchowder, soupprice);
                         AddData(details);
                     }
                     if (veggiesoupb.isChecked()) {
-                        Details details = new Details(uid, veggiesoup, soupprice,1);
+                        Details details = new Details(1, veggiesoup, soupprice);
                         AddData(details);
                     }
                     if (chickennoodleb.isChecked()) {
-                        Details details = new Details(uid, chickennoodle, soupprice,1);
+                        Details details = new Details(1, chickennoodle, soupprice);
                         AddData(details);
                     }
                 }
