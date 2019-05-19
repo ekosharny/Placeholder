@@ -141,6 +141,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
            return result;
        }
 
+       public String loadItems(){
+        String result = "";
+        String query = "Select*FROM " + TABLE_NAME3;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            int result_0 = cursor.getInt(0);
+            String result_1 = cursor.getString(1);
+            double result_2 = cursor.getDouble(2);
+            result += "  " + result_1 + System.getProperty("line.separator");
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+    public String loadPrices(){
+        String result = "";
+        String query = "Select*FROM " + TABLE_NAME3;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            int result_0 = cursor.getInt(0);
+            String result_1 = cursor.getString(1);
+            double result_2 = cursor.getDouble(2);
+            result += "$ " + result_2 +"0" + System.getProperty("line.separator");
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
        //ADD VALUES TO USER TABLE
         //we must use the ContentValues object with the put() method that is used to assign data to ContentsValues object
         //and then use insert() method of SQLiteDatabase object to insert data to the database
