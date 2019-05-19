@@ -19,7 +19,6 @@
         <activity android:name=".desserts" />
         <activity android:name=".sides" />
         <activity android:name=".drinks" />
-        <activity android:name=".account" />
         <activity android:name=".SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
