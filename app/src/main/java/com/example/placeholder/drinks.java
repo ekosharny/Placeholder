@@ -52,26 +52,26 @@ public class drinks extends AppCompatActivity {
         strawberriesb = findViewById(R.id.strawberriesButton);
         blueberriesb = findViewById(R.id.blueberriesButton);
 
-        cocacola = cocacolab.getText().toString();
-        pepsi = pepsib.getText().toString();
-        mountaindew  = mountaindewb.getText().toString();
-        sprite  = spriteb.getText().toString();
-        fanta = fantab.getText().toString();
-        applej  = applejb.getText().toString();
-        cranberryj = cranberryjb.getText().toString();
-        orangej = orangejb.getText().toString();
-        lemonade = lemonadeb.getText().toString();
-        pineapplej = pineapplejb.getText().toString();
-        greekyogurt = greekyogurtb.getText().toString();
-        wholemilk = wholemilkb.getText().toString();
-        almondmilk = almondmilkb.getText().toString();
-        soymilk = soymilkb.getText().toString();
-        coconutmilk = coconutmilkb.getText().toString();
-        apple = appleb.getText().toString();
-        banana = bananab.getText().toString();
-        orange = orangeb.getText().toString();
-        strawberries = strawberriesb.getText().toString();
-        blueberries = blueberriesb.getText().toString();
+        cocacola = "Coca Cola";
+        pepsi = "Pepsi";
+        mountaindew  = "Mountain Dew";
+        sprite  = "Sprite";
+        fanta = "Fanta";
+        applej  = "Apple Juice";
+        cranberryj = "Cranberry Juice";
+        orangej = "Orange Juice";
+        lemonade = "Lemonade";
+        pineapplej = "Pineapple Juice";
+        greekyogurt = "Greek Yogurt";
+        wholemilk = "Whole Milk";
+        almondmilk = "Almond Milk";
+        soymilk = "Soy Milk";
+        coconutmilk = "Coconut Milk";
+        apple = "Apple";
+        banana = "Banana";
+        orange = "Orange";
+        strawberries = "Strawberries";
+        blueberries = "Blueberries";
 
         addToCart = findViewById(R.id.addDrinksButton);
 
@@ -119,7 +119,7 @@ public class drinks extends AppCompatActivity {
                     AddData(details);
                 }
 
-                String smoothie="";
+                String smoothie="Smoothie: ";
 
                 if(greekyogurtb.isChecked() || wholemilkb.isChecked() || almondmilkb.isChecked() || soymilkb.isChecked() || coconutmilkb.isChecked()) {
                     if (greekyogurtb.isChecked()) {

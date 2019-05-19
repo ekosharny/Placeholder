@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 //ACCOUNT TAB
 
-public class Account extends AppCompatActivity {
+public class account extends AppCompatActivity {
 
     private static final String Tag = "ACCOUNT";
 
@@ -52,7 +52,7 @@ public class Account extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Account.this, SignIn.class));
+                startActivity(new Intent(account.this, SignIn.class));
                 finish();
             }
         });

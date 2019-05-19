@@ -134,7 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                int result_0 = cursor.getInt(0);
                String result_1 = cursor.getString(1);
                double result_2 = cursor.getDouble(2);
-               result += result_0 + " " + result_1 + " $" + result_2 + System.getProperty("line.separator");
+               result += result_0 + "         " + result_1 + "  $" + result_2 + System.getProperty("line.separator");
            }
            cursor.close();
            db.close();
