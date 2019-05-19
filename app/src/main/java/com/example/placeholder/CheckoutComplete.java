@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class CheckoutComplete extends AppCompatActivity {
 
     Button returnToMenu;
-    TextView orderoutput,orderprice;
+    TextView orderoutput,orderprice, total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class CheckoutComplete extends AppCompatActivity {
 
         orderoutput = findViewById(R.id.checkedout);
         orderprice = findViewById(R.id.checkedoutprice);
+        total = findViewById(R.id.totalcomplete);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String e="";
@@ -33,12 +34,17 @@ public class CheckoutComplete extends AppCompatActivity {
         orderoutput.setText(dbHandler.loadItems(e));
         orderprice.setText(dbHandler.loadPrices(e));
 
+        double d = dbHandler.addPrices(e);
+
+        total.setText("TOTAL:  $"+ String.valueOf(d) + "0");
+
         returnToMenu = findViewById(R.id.returnToMenuButton);
 
         returnToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean x = deleteItems();
+                total.setText("");
                 startActivity(new Intent(CheckoutComplete.this, MainActivity.class));
                 finish();
             }

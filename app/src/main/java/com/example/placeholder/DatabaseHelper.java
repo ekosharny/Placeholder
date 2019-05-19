@@ -164,7 +164,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String loadPrices(String email){
         String result = "";
-        String query = "Select*FROM " + TABLE_NAME3+ " WHERE " + COLUMN_EMAIL3 + " = " + "'" + email + "'";
+        String query = "Select*FROM " + TABLE_NAME3 + " WHERE " + COLUMN_EMAIL3 + " = " + "'" + email + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
@@ -177,6 +177,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return result;
+    }
+
+    public double addPrices(String email){
+        double total = 0.0;
+        String query = "Select*FROM " + TABLE_NAME3 + " WHERE " + COLUMN_EMAIL3 + " = " + "'" + email + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            int result_0 = cursor.getInt(0);
+            String result_1 = cursor.getString(1);
+            double result_2 = cursor.getDouble(2);
+            String result_3=cursor.getString(3);
+            total+=result_2;
+        }
+        cursor.close();
+        db.close();
+
+        return total;
     }
 
 

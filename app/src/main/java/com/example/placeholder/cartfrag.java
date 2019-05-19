@@ -40,6 +40,10 @@ public class cartfrag extends Fragment{
         DatabaseHelper dbHandler = new DatabaseHelper(getActivity());
         items.setText(dbHandler.loadItems(e));
         prices.setText(dbHandler.loadPrices(e));
+        double d = dbHandler.addPrices(e);
+
+        total.setText("$"+ String.valueOf(d) + "0");
+
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +52,7 @@ public class cartfrag extends Fragment{
                 if(x=true){
                     items.setText("");
                     prices.setText("");
+                    total.setText("");
                 }
                 else
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
