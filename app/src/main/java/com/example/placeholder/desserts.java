@@ -138,6 +138,7 @@ public class desserts extends AppCompatActivity {
         //creates new databasehelper and calls addHandler which adds the customer to the database
         DatabaseHelper dbHandler = new DatabaseHelper(this);
         dbHandler.addDetails(details);
+        dbHandler.addHistory(details);
     }
     @Override
     public boolean onSupportNavigateUp() {

@@ -6,9 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.placeholder.Database.History;
-import com.example.placeholder.Database.User;
 import com.example.placeholder.Database.Details;
+import com.example.placeholder.Database.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
         //information of database
@@ -118,7 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                String result_0 = cursor.getString(0);
                String result_1 = cursor.getString(1);
                double result_2 = cursor.getDouble(2);
-               int result_4=cursor.getInt(4);
+               int result_3=cursor.getInt(3);
                result += result_0 + "         " + result_1 + "  $" + result_2 + System.getProperty("line.separator");
            }
            cursor.close();
@@ -135,7 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String result_0 = cursor.getString(0);
             String result_1 = cursor.getString(1);
             double result_2 = cursor.getDouble(2);
-            int result_4 = cursor.getInt(4);
+            int result_4 = cursor.getInt(3);
             result += "  " + result_1 + System.getProperty("line.separator");
         }
         cursor.close();
@@ -153,7 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String result_0 = cursor.getString(0);
             String result_1 = cursor.getString(1);
             double result_2 = cursor.getDouble(2);
-            int result_4 = cursor.getInt(4);
+            int result_4 = cursor.getInt(3);
             result += "$ " + result_2 +"0" + System.getProperty("line.separator");
         }
         cursor.close();
@@ -171,7 +170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String result_0 = cursor.getString(0);
             String result_1 = cursor.getString(1);
             double result_2 = cursor.getDouble(2);
-            int result_4=cursor.getInt(4);
+            int result_4=cursor.getInt(3);
             result += result_0 + "         " + result_1 + "  $" + result_2 + System.getProperty("line.separator");
         }
         cursor.close();
@@ -179,7 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public String loadOrderes(){
+    public String loadOrders(){
         String result = "";
         String query = "Select*FROM " + TABLE_NAME3;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -226,18 +225,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
            db.close();
        }
 
-        public void addHistory(History history) {
+
+        public void addHistory(Details details) {
 
             ContentValues values = new ContentValues();
-            values.put(COLUMN_UID3, history.getUID());
-            values.put(COLUMN_ITEM3, history.getItemName());
-            values.put(COLUMN_PRICE3, history.getPrice());
-            values.put(COLUMN_ORDERID3, history.getOrderID());
+            values.put(COLUMN_UID3, details.getUID());
+            values.put(COLUMN_ITEM3, details.getItemName());
+            values.put(COLUMN_PRICE3, details.getPrice());
+            values.put(COLUMN_ORDERID3, details.getOrderID());
             SQLiteDatabase db = this.getWritableDatabase();
             db.insert(TABLE_NAME3, null, values);
             db.close();
         }
 
+        public void addOrders(){
+            String query = "Select*FROM " + TABLE_NAME2;
+            ContentValues values = new ContentValues();
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(query, null);
+            while (cursor.moveToNext()) {
+                String result_0 = cursor.getString(0);
+                String result_1 = cursor.getString(1);
+                double result_2 = cursor.getDouble(2);
+                int result_3 = cursor.getInt(3);
+
+                values.put(COLUMN_UID3, result_0);
+                values.put(COLUMN_ITEM3, result_1);
+                values.put(COLUMN_PRICE3, result_2);
+                values.put(COLUMN_ORDERID3, result_3);
+                db.insert(TABLE_NAME3, null, values);
+            }
+            cursor.close();
+            db.close();
+        }
+
+
+
+    //INSERT INTO new_db.TABLE SELECT * FROM old_db.TABLE;
 
         //finds information in the database by condition
        //parameter is the email/username
@@ -316,7 +340,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(query, null);
             Details details = new Details();
             if (cursor.moveToFirst()) {
-                details.setOrderID(cursor.getInt(4));
+                details.setOrderID(cursor.getInt(3));
                 db.delete(TABLE_NAME2, COLUMN_ORDERID2 + "=?",
                     new String[] {
                             String.valueOf(details.getOrderID())
