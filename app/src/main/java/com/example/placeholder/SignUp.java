@@ -23,6 +23,7 @@ public class SignUp extends AppCompatActivity {
     private EditText email, password, confirmP;
     private Button signup;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class SignUp extends AppCompatActivity {
         confirmP = findViewById(R.id.confirmP);
         signup = findViewById(R.id.signUpButton);
 
-
+        mAuth = FirebaseAuth.getInstance();
 
 
         //sign up button adds new users to database
@@ -70,7 +71,18 @@ public class SignUp extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            user = mAuth.getCurrentUser();
+                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(SignUp.this, "Verification email sent to " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
                             String uid= user.getUid();
                             String email = user.getEmail();
                             User newuser = new User(uid, email);

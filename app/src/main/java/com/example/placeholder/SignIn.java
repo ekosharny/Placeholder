@@ -43,7 +43,7 @@ public class SignIn extends AppCompatActivity {
 
 
         //automatically goes to main activity if user is already signed in on device
-        if (user != null){
+        if (user != null && user.isEmailVerified()){
             startActivity(new Intent(SignIn.this, MainActivity.class));
             finish();
         }
