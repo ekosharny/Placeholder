@@ -232,7 +232,7 @@ public class CreateBowls extends AppCompatActivity {
 
                 if (user != null) {
                     uid = user.getUid();
-                    Details details = new Details(uid, custombowl, bowlprice, 1);
+                    Details details = new Details(1, custombowl, bowlprice);
                     AddData(details);
                 }
             }
