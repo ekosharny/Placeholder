@@ -6,15 +6,8 @@
         android:title="Notification"
         app:showAsAction="ifRoom"/>
 
-    <item android:id="@+id/dropdown_account"
-        android:title="Account"
-        app:showAsAction="never"/>
-
-    <item android:id="@+id/dropdown_previous"
-        android:title="Previous Orders"
-        app:showAsAction="never"/>
-
-    <item android:id="@+id/dropdown_settings"
+    <item android:id="@+id/settings_icon"
         android:title="Settings"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_settings_black_24dp"
+        app:showAsAction="ifRoom"/>
 </menu>

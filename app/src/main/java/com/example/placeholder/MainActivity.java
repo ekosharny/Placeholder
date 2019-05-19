@@ -88,14 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.notification_icon:
                     Toast.makeText(this, "Notifications", Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.dropdown_account:
-                    Toast.makeText(this, "account", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, account.class));
-                    return true;
-                case R.id.dropdown_previous:
-                    Toast.makeText(this, "Previous Orders", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.dropdown_settings:
+
+                case R.id.settings_icon:
                     Intent intent4 = new Intent(this, settings.class);
                     startActivity(intent4);
                     return true;
