@@ -35,7 +35,7 @@ public class settings extends AppCompatActivity {
         changePassword2 = findViewById(R.id.changepassword2);
         logout = findViewById(R.id.logout);
         email = findViewById(R.id.emailBox);
-        viewUsersDB = findViewById(R.id.viewUsersBox);
+        //viewUsersDB = findViewById(R.id.viewUsersBox);
         viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -98,12 +98,14 @@ public class settings extends AppCompatActivity {
             }
         });
 
+        /*
         viewUsersDB.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 showUsers(view);
             }
         });
+        */
 
         viewDetailsDB.setOnClickListener(new OnClickListener() {
             @Override
@@ -122,7 +124,7 @@ public class settings extends AppCompatActivity {
 
     public void showDetails(View view){
         DatabaseHelper dbHandler = new DatabaseHelper(this);
-        viewUsersDB.setText(dbHandler.loadDetails());
+        viewDetailsDB.setText(dbHandler.loadDetails());
     }
 
 }

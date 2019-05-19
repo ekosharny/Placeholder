@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
                         switch(menuItem.getItemId()){
                             case R.id.navigation_menu:
-                                selectedFragment= new menufrag();
-
+                                selectedFragment=new menufrag();
+                            case R.id.navigation_cart:
+                                selectedFragment = new cartfrag();
                             break;
 
                         }
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.dropdown_account:
                     Toast.makeText(this, "Account", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, accountfrag.class));
+                    startActivity(new Intent(MainActivity.this, Account.class));
                     return true;
                 case R.id.dropdown_previous:
                     Toast.makeText(this, "Previous Orders", Toast.LENGTH_SHORT).show();

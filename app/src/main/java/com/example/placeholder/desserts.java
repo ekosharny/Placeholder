@@ -41,19 +41,19 @@ public class desserts extends AppCompatActivity {
         chocolatecupcakeb = findViewById(R.id.chocolatecupcakeButton);
         vanillacupcakeb = findViewById(R.id.vanillacupcakeButton);
 
-        redvelvetcake = redvelvetcakeb.getText().toString();
-        chocolatecake = chocolatecakeb.getText().toString();
-        strawberrycake  = strawberrycakeb.getText().toString();
-        blueberrycake = blueberrycakeb.getText().toString();
-        toffeecake = toffeecakeb.getText().toString();
-        pbcake = pbcakeb.getText().toString();
-        chocolatechip = chocolatechipb.getText().toString();
-        oatmealraisin = oatmealraisinb.getText().toString();
-        pbcookie = pbcookieb.getText().toString();
-        macadamia = macadamiab.getText().toString();
-        redvelvetcupcake = redvelvetcupcakeb.getText().toString();
-        chocolatecupcake = chocolatecupcakeb.getText().toString();
-        vanillacupcake = vanillacupcakeb.getText().toString();
+        redvelvetcake = "Red Velvet Cheesecake";
+        chocolatecake = "Chocolate Cheesecake";
+        strawberrycake  = "Strawberry Swirl Cheesecake";
+        blueberrycake = "Blueberry CheeseCake";
+        toffeecake = "Toffee Cheesecake";
+        pbcake = "Peanut Butter CheeseCake";
+        chocolatechip = "Chocolate Chip Cookie";
+        oatmealraisin = "Oatmeal Raisin Cookie";
+        pbcookie = "Peanut Butter Cookie";
+        macadamia = "Macadamia Nut Cookie";
+        redvelvetcupcake = "Red Velvet Cupcake";
+        chocolatecupcake = "Chocolate Cupcake";
+        vanillacupcake = "Vanilla Sprinkle Cupcake";
 
         addToCart = findViewById(R.id.addDessertsButton);
 
