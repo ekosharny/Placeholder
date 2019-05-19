@@ -110,10 +110,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //ORDERS TABLE
-    public String loadOrders() {
+    public String loadOrders(String email) {
 
         String result = "";
-        String query = "Select*FROM " + TABLE_NAME2;
+        String query = "Select*FROM " + TABLE_NAME2+ " WHERE " + COLUMN_EMAIL2 + " = " + "'" + email + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
@@ -207,8 +207,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void copyOrders(){
-        String query = "Select*FROM " + TABLE_NAME3;
+    public void copyOrders(String email){
+        String query = "Select*FROM " + TABLE_NAME3+ " WHERE " + COLUMN_EMAIL3 + " = " + "'" + email + "'";
         ContentValues values = new ContentValues();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);

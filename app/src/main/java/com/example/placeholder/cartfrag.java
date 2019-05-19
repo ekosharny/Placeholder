@@ -1,5 +1,6 @@
 package com.example.placeholder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class cartfrag extends Fragment{
 
-    TextView items, prices;
+    TextView items, prices, total;
     Button clear, checkout;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,14 +29,13 @@ public class cartfrag extends Fragment{
         prices = view.findViewById(R.id.prices);
         clear = view.findViewById(R.id.clear);
         checkout = view.findViewById(R.id.checkout);
+        total = view.findViewById(R.id.totalOutput);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String e="";
         if (user != null) {
             e = user.getEmail();
         }
-
-
 
         DatabaseHelper dbHandler = new DatabaseHelper(getActivity());
         items.setText(dbHandler.loadItems(e));
@@ -58,8 +58,16 @@ public class cartfrag extends Fragment{
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String e="";
+                if (user != null) {
+                    e = user.getEmail();
+                }
                 DatabaseHelper dhelper = new DatabaseHelper(getActivity());
-                dhelper.copyOrders();
+                dhelper.copyOrders(e);
+
+                Intent intent = new Intent(getActivity(), CheckoutComplete.class);
+                startActivity(intent);
             }
         });
 

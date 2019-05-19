@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class ordersfrag extends Fragment {
 
     TextView orders;
@@ -21,8 +24,14 @@ public class ordersfrag extends Fragment {
 
         orders = view.findViewById(R.id.previousOrders);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String e="";
+        if (user != null) {
+            e = user.getEmail();
+        }
+
         DatabaseHelper dhelper = new DatabaseHelper(getActivity());
-        orders.setText(dhelper.loadOrders());
+        orders.setText(dhelper.loadOrders(e));
 
 
         return view;
