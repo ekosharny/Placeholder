@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +19,9 @@ public class settings extends AppCompatActivity {
     Button delete, save;
     EditText changeUsername, changePassword, changePassword2;
     FirebaseUser user;
+    private Button logout;
+    TextView email,viewUsersDB, viewDetailsDB;
+    String demail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,10 @@ public class settings extends AppCompatActivity {
         changeUsername = findViewById(R.id.changeusername);
         changePassword = findViewById(R.id.changepassword);
         changePassword2 = findViewById(R.id.changepassword2);
+        logout = findViewById(R.id.logout);
+        email = findViewById(R.id.emailBox);
+        viewUsersDB = findViewById(R.id.viewUsersBox);
+        viewDetailsDB = findViewById(R.id.viewDetailsBox);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -74,4 +82,64 @@ public class settings extends AppCompatActivity {
 
     }
 
+
+    public void showUsers(View view) {
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        viewUsersDB.setText(dbHandler.loadUsers());
+    }
+
+    public void showDetails(View view){
+        DatabaseHelper dbHandler = new DatabaseHelper(this);
+        viewUsersDB.setText(dbHandler.loadDetails());
+    }
+
 }
+
+/*
+        //link buttons to id of elements in layout
+        logout = findViewById(R.id.logout);
+        email = findViewById(R.id.emailBox);
+        viewUsersDB = findViewById(R.id.viewUsersBox);
+        viewDetailsDB = findViewById(R.id.viewDetailsBox);
+
+        viewUsersDB.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View view) {
+        showUsers(view);
+        }
+        });
+
+        viewDetailsDB.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View view) {
+        showDetails(view);
+        }
+        });
+
+        //logout button redirects back to main page
+        logout.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(accountfrag.this, SignIn.class));
+        finish();
+        }
+        });
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+        demail = user.getEmail();
+
+        boolean emailVerified = user.isEmailVerified();
+
+        // The user's ID, unique to the Firebase project. Do NOT use this value to
+        // authenticate with your backend server, if you have one. Use
+        // FirebaseUser.getIdToken() instead.
+        String uid = user.getUid();
+        }
+
+        email.setText(demail);
+        */
