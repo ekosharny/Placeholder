@@ -80,7 +80,7 @@ public class settings extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
                     }
                 }
-                Toast.makeText(getApplicationContext(), "Account Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "account Updated", Toast.LENGTH_SHORT).show();
                 changeUsername.setText("");
                 changePassword.setText("");
                 changePassword2.setText("");
