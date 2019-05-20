@@ -42,8 +42,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/potatochips"
                 android:text="Potato"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -52,8 +53,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/sourcreamandonion"
                 android:text="Sour Cream"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -62,8 +64,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/cheddarchips"
                 android:text="Cheddar"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -72,8 +75,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/bbqchips"
                 android:text="BBQ"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -82,8 +86,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/popcorn"
                 android:text="Popcorn"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -111,8 +116,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/whitebread"
                 android:text="White Bread"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -121,8 +127,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/wholewheat"
                 android:text="Whole Wheat"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -131,8 +138,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/wholegrain"
                 android:text="Whole Grain"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -141,8 +149,9 @@
                 android:layout_width="125dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/sourdough"
                 android:text="Sourdough"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -151,8 +160,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/pita"
                 android:text="Pita"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -180,8 +190,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/frenchonionsoup"
                 android:text="French Onion"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -190,8 +201,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/clamchowder"
                 android:text="Clam Chowder"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -200,8 +212,9 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/veggiesoup"
                 android:text="Veggie"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -210,8 +223,9 @@
                 android:layout_width="125dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/chickennoodle"
                 android:text="Chicken Noodle"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
