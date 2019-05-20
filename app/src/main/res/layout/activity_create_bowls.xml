@@ -12,10 +12,11 @@
     <include
         android:id="@id/toolbar"
         layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/createBowlTV"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="52dp"
         android:text="   Create Your Own Bowl"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"

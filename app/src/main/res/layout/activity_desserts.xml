@@ -25,7 +25,7 @@
         android:id="@+id/cheesecakeTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cheese Cake                           $4.00"
+        android:text="Cheese Cake  (300 cal)        $4.00"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -63,7 +63,7 @@
                 android:layout_width="125dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/strawberryswirlcc"
                 android:text="Strawberry Swirl"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -104,7 +104,7 @@
         android:id="@+id/cookiesTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cookies                                     $1.50"
+        android:text="Cookies            (80 cal)           $1.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -122,7 +122,7 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/chochipcookie"
                 android:text="Chocolate Chip"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -132,7 +132,7 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/oatmealraisin"
                 android:text="Oatmeal Raisin"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -152,7 +152,7 @@
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/whitechocmac"
                 android:text="White Macadamia"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -164,7 +164,7 @@
         android:id="@+id/cupcakeTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Cupcakes                                 $2.50"
+        android:text="Cupcakes         (240 cal)       $2.50"
         android:textSize="24sp"
         app:fontFamily="@font/coiny" />
 
@@ -183,7 +183,7 @@
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/redvelvetcupc"
                 android:text="Red Velvet"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -193,7 +193,7 @@
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/chocolatecupcake"
                 android:text="Chocolate"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -203,7 +203,7 @@
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:background="@drawable/vanillasprinkle"
                 android:text="Vanilla Sprinkle"
                 android:textSize="18sp"
                 android:textStyle="bold" />
