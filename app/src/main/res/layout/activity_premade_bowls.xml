@@ -32,7 +32,7 @@
                 android:id="@+id/caliBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cali Bowl"
+                android:text="Cali Bowl                 (450 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -75,7 +75,7 @@
                 android:id="@+id/tritriBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TriTri Bowl"
+                android:text="TriTri Bowl             (580 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -118,7 +118,7 @@
                 android:id="@+id/macfergusBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MacFergus Bowl"
+                android:text="MacFergus Bow     (630 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -161,7 +161,7 @@
                 android:id="@+id/hawaiianBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hawaiian Bowl"
+                android:text="Hawaiian Bowl      (520 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -204,7 +204,7 @@
                 android:id="@+id/vegetarianBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vegetarian Bowl"
+                android:text="Vegetarian Bowl   (400 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
@@ -247,7 +247,7 @@
                 android:id="@+id/farmerBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Farmer Bowl"
+                android:text="Farmer Bowl          (420 cal)"
                 android:textSize="18sp"
                 app:fontFamily="@font/coiny" />
 
